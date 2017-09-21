@@ -36,16 +36,14 @@
             this.picLoad = new System.Windows.Forms.PictureBox();
             this.picExcel = new System.Windows.Forms.PictureBox();
             this.picBrowseExcel = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.picLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBrowseExcel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnImportToDB
             // 
-            this.btnImportToDB.Location = new System.Drawing.Point(304, 311);
+            this.btnImportToDB.Location = new System.Drawing.Point(249, 311);
             this.btnImportToDB.Name = "btnImportToDB";
             this.btnImportToDB.Size = new System.Drawing.Size(137, 33);
             this.btnImportToDB.TabIndex = 1;
@@ -57,7 +55,7 @@
             // 
             this.comboAvailSheets.FormattingEnabled = true;
             this.comboAvailSheets.ItemHeight = 23;
-            this.comboAvailSheets.Location = new System.Drawing.Point(272, 256);
+            this.comboAvailSheets.Location = new System.Drawing.Point(217, 256);
             this.comboAvailSheets.Name = "comboAvailSheets";
             this.comboAvailSheets.Size = new System.Drawing.Size(217, 29);
             this.comboAvailSheets.TabIndex = 2;
@@ -67,7 +65,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(154, 266);
+            this.metroLabel1.Location = new System.Drawing.Point(99, 266);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(103, 19);
             this.metroLabel1.TabIndex = 3;
@@ -80,7 +78,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.progLine});
-            this.shapeContainer1.Size = new System.Drawing.Size(720, 532);
+            this.shapeContainer1.Size = new System.Drawing.Size(579, 354);
             this.shapeContainer1.TabIndex = 5;
             this.shapeContainer1.TabStop = false;
             // 
@@ -94,10 +92,10 @@
             // 
             // picLoad
             // 
-            this.picLoad.Image = global::MDAMS.Properties.Resources.giphy_2;
-            this.picLoad.Location = new System.Drawing.Point(508, 251);
+            this.picLoad.Image = global::MDAMS.Properties.Resources.giphy;
+            this.picLoad.Location = new System.Drawing.Point(451, 247);
             this.picLoad.Name = "picLoad";
-            this.picLoad.Size = new System.Drawing.Size(37, 34);
+            this.picLoad.Size = new System.Drawing.Size(47, 47);
             this.picLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLoad.TabIndex = 6;
             this.picLoad.TabStop = false;
@@ -105,7 +103,7 @@
             // picExcel
             // 
             this.picExcel.Image = global::MDAMS.Properties.Resources.excel_8;
-            this.picExcel.Location = new System.Drawing.Point(284, 174);
+            this.picExcel.Location = new System.Drawing.Point(229, 174);
             this.picExcel.Name = "picExcel";
             this.picExcel.Size = new System.Drawing.Size(56, 64);
             this.picExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -116,7 +114,7 @@
             // picBrowseExcel
             // 
             this.picBrowseExcel.Image = global::MDAMS.Properties.Resources.Import2;
-            this.picBrowseExcel.Location = new System.Drawing.Point(284, 102);
+            this.picBrowseExcel.Location = new System.Drawing.Point(229, 102);
             this.picBrowseExcel.Name = "picBrowseExcel";
             this.picBrowseExcel.Size = new System.Drawing.Size(167, 136);
             this.picBrowseExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -126,20 +124,11 @@
             this.picBrowseExcel.MouseEnter += new System.EventHandler(this.picBrowseExcel_MouseEnter);
             this.picBrowseExcel.MouseLeave += new System.EventHandler(this.picBrowseExcel_MouseLeave);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(37, 370);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(652, 150);
-            this.dataGridView1.TabIndex = 7;
-            // 
             // FrmImportExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 612);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(619, 434);
             this.Controls.Add(this.picLoad);
             this.Controls.Add(this.picExcel);
             this.Controls.Add(this.metroLabel1);
@@ -152,7 +141,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBrowseExcel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +156,5 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape progLine;
         private System.Windows.Forms.PictureBox picLoad;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using LinqToExcel;
 using MetroFramework;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -18,11 +19,55 @@ namespace MDAMS
         private string _strFilePath, _strSheetName;
         DatabaseHelper _dbHelper;
 
+        #region Constructors
+
         public FrmImportExcel()
         {
             InitializeComponent();
             Init();
         }
+
+        #endregion
+
+        #region Handlers
+
+        private void picBrowseExcel_MouseEnter(object sender, EventArgs e)
+        {
+            picBrowseExcel.BackColor = Color.LightGray;
+            picExcel.BackColor = Color.LightGray;
+        }
+
+        private void picBrowseExcel_MouseLeave(object sender, EventArgs e)
+        {
+            picBrowseExcel.BackColor = Color.White;
+            picExcel.BackColor = Color.White;
+        }
+
+        private async void comboAvailSheets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ReadExcel();
+        }
+
+        private async void btnImportToDB_Click(object sender, EventArgs e)
+        {
+            ReadExcel();
+        }
+
+        private async void picBrowseExcel_Click(object sender, EventArgs e)
+        {
+            //picLoad.Visible = true;
+            await OnBrowseExcelClick();
+            //picLoad.Visible = false;
+
+        }
+
+        private async void picExcel_Click(object sender, EventArgs e)
+        {
+            await OnBrowseExcelClick();
+        }
+        #endregion
+
+        #region UserDefinedFunctions
 
         private void Init()
         {
@@ -37,106 +82,66 @@ namespace MDAMS
             //_excelWorksheet = (Excel.Worksheet) _excelWorkbook.Worksheets.Item[index + 1];
         }
 
-        private async void btnAnimateLine_Click(object sender, EventArgs e)
+        private async void ReadExcel()
         {
-            int i = 0;
-            while (i < this.Size.Width)
-            {
-                progLine.X2 = i++;
-                await Task.Delay(10);
-            }
-        }
-
-
-
-        private void picBrowseExcel_MouseEnter(object sender, EventArgs e)
-        {
-            picBrowseExcel.BackColor = Color.LightGray;
-            picExcel.BackColor = Color.LightGray;
-        }
-
-        private void picBrowseExcel_MouseLeave(object sender, EventArgs e)
-        {
-            picBrowseExcel.BackColor = Color.White;
-            picExcel.BackColor = Color.White;
-        }
-
-        private void comboAvailSheets_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ReadExcel();
-        }
-
-        private void btnImportToDB_Click(object sender, EventArgs e)
-        {
-            ReadExcel();
-        }
-
-        private void ReadExcel()
-        {
+            InitExcelApp(_strFilePath);
             _excelWorksheet = (Excel.Worksheet)_excelWorkbook.Worksheets.Item[Convert.ToInt32(comboAvailSheets.SelectedIndex) + 1];
 
-            var excelFile = new ExcelQueryFactory(_strFilePath);
-            var datasQueryable = from a in excelFile.Worksheet(comboAvailSheets.SelectedText) select a;
-
-            // var columnNames = datasQueryable.ElementAt(1);
-
-            DataTable dataTable = new DataTable();
-
-
-            int cnt = 0;
-            foreach (Row data in datasQueryable)
+            DataTable dt = await Task.Run(() =>
             {
-                if (cnt > 1)
-                {
-                    int i = 0;
+                var excelFile = new ExcelQueryFactory(_strFilePath);
+                var datasQueryable = from a in excelFile.Worksheet(comboAvailSheets.SelectedText) select a;
 
-                    foreach (Cell cell in data)
-                    {
-                        string str = cell.Value.ToString();
-                        if (str.Equals("") == false)
-                        {
-                            str = str.Replace("\"", string.Empty).Replace("'", string.Empty); i++;
-                        }
-                    }
-                    object[] objects = new object[i];
-                    i = 0;
-                    foreach (Cell cell in data)
-                    {
-                        string str = cell.Value.ToString();
-                        if (str.Equals("") == false)
-                        {
-                            str = str.Replace("\"", string.Empty).Replace("'", string.Empty);
-                            objects[i++] = str;
-                        }
-                    }
-                    if (i != 0)
-                        dataTable.Rows.Add(objects);
-                }
-                else if (cnt == 0)
+                // var columnNames = datasQueryable.ElementAt(1);
+
+                DataTable dataTable = new DataTable();
+
+                int _rowCount = 0;
+                foreach (Row data in datasQueryable)
                 {
-                    foreach (var cell in data)
+                    if (_rowCount > 0)
                     {
-                        string str = cell.ToString();
-                        if (!(str.Equals("")))
+
+                        //Reading Processed Data From Excel
+                        List<string> objects = new List<string>();
+                        int _colCount = 0;
+                        foreach (Cell cell in data)
                         {
-                            if (str.Contains("'"))
+                            string str = cell.Value.ToString();
+                            if (str.Equals("") == false)
                             {
                                 str = str.Replace("\"", string.Empty).Replace("'", string.Empty);
+                                objects.Add(str);
+                                ++_colCount;
                             }
-                            dataTable.Columns.Add(str);
                         }
+                        //Adding Records to Table, if the row is not empty
+                        if (_colCount > 0)
+                            dataTable.Rows.Add(objects.ToArray());
                     }
-                    cnt++;
+                    //Adding Column Headers to DataTable
+                    else if (_rowCount == 0)
+                    {
+                        foreach (var cell in data)
+                        {
+                            string str = cell.ToString();
+                            if (!(str.Equals("")))
+                            {
+                                if (str.Contains("'"))
+                                {
+                                    str = str.Replace("\"", string.Empty).Replace("'", string.Empty);
+                                }
+                                dataTable.Columns.Add(str);
+                            }
+                        }
+                        _rowCount++;
+                    }
                 }
-                else
-                {
-                    cnt++;
-                }
-            }
-            _excelApp.Quit();
+                _excelApp.Quit();
+                return dataTable;
+            });
 
-            dataGridView1.DataSource = dataTable;
-            if (!(ImportExcelToDB(dataTable)))
+            if (!(ImportExcelToDB(dt)))
             {
                 var res = MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nDo you want to save the Error Message?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (res == DialogResult.Yes)
@@ -148,6 +153,7 @@ namespace MDAMS
                     }
                 }
             }
+            MetroMessageBox.Show(this, "Data Imported Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private bool ImportExcelToDB(DataTable dt)
@@ -156,25 +162,18 @@ namespace MDAMS
             //string strQuery = String.Format("INSERT INTO TBLMEDICINES(CDRUGNO, CPRODUCT, CUNITSIZE, CMRP, CTG) VALUES");
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string strQuery = String.Format("INSERT INTO TBLMEDICINES(CDRUGNO, CPRODUCT, CUNITSIZE, CMRP, CTG) VALUES");
+                string strQuery = String.Format(" INTO TBLMEDICINES(CDRUGNO, CPRODUCT, CUNITSIZE, CMRP, CTG) VALUES");
                 strQuery = strQuery + String.Format("({0}, '{1}', '{2}', {3}, '{4}');", dt.Rows[i][1].ToString().Trim(), dt.Rows[i][2].ToString().Trim(),
                                dt.Rows[i][3].ToString().Trim(), dt.Rows[i][4].ToString().Trim(), "");
                 if (_dbHelper.UpdateQuery(strQuery) == -1)
                 {
                     flag = !flag;
                 }
-
             }
-            //strQuery = strQuery.Remove(strQuery.Length - 2);
-            //strQuery += ";";
-            ////if (_dbHelper.UpdateQuery(strQuery) == -1)
-            ////{
-            ////    flag = !flag;
-            ////}
             return flag;
         }
 
-        private async void OnBrowseExcelClick()
+        private async Task OnBrowseExcelClick()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Excel Files(*.xls, *.xlsx, *.csv) | *.xls; *.xlsx; *.csv";
@@ -185,9 +184,10 @@ namespace MDAMS
 
 
                 comboAvailSheets.Items.Clear();
+                picLoad.Visible = true;
                 // ReSharper disable once ComplexConditionExpression
                 string[] strWorksheetNames = await Task.Run((Func<string[]>)ReadAllRecordsFromExcel);
-
+                picLoad.Visible = false;
                 foreach (var name in strWorksheetNames)
                 {
                     comboAvailSheets.Items.Add(name);
@@ -207,21 +207,6 @@ namespace MDAMS
             return strNames;
         }
 
-        private async void picBrowseExcel_Click(object sender, EventArgs e)
-        {
-            picLoad.Visible = true;
-            OnBrowseExcelClick();
-            picLoad.Visible = false;
-
-        }
-
-        private void picExcel_Click(object sender, EventArgs e)
-        {
-            picLoad.Visible = true;
-            OnBrowseExcelClick();
-            picLoad.Visible = false;
-        }
-
         private void ClearAll()
         {
             _excelApp = null;
@@ -231,5 +216,9 @@ namespace MDAMS
             comboAvailSheets.Items.Clear();
             picLoad.Visible = false;
         }
+
+        #endregion
+
+
     }
 }

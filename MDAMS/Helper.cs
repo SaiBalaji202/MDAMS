@@ -1,7 +1,6 @@
-﻿using System;
-using System.Security.Authentication.ExtendedProtection;
+﻿using MetroFramework.Controls;
+using System;
 using System.Windows.Forms;
-using MetroFramework.Controls;
 
 namespace MDAMS
 {
@@ -11,16 +10,14 @@ namespace MDAMS
         {
             try
             {
-                if (System.IO.File.Exists(AppGlobalDatas.LogFileName))
+                using (var tw = new System.IO.StreamWriter(AppGlobalDatas.LogFileName, true))
                 {
-                    using (var tw = new System.IO.StreamWriter(AppGlobalDatas.LogFileName, true))
-                    {
-                        tw.WriteLine(
-                            String.Format("\nError: {0} [ - ({1})]\n\t{2}\n", errSubj, DateTime.Now, errStackTrace));
-                        tw.Close();
+                    tw.WriteLine(
+                        String.Format("\n[{1}] - Error: {0} \n\t{2}\n", errSubj, DateTime.Now, errStackTrace));
+                    tw.Close();
 
-                    }
                 }
+
                 return true;
             }
             catch (Exception exception)
@@ -43,7 +40,7 @@ namespace MDAMS
                 {
                     if (control.GetType() == typeof(MetroComboBox))
                     {
-                        MetroComboBox combo = (MetroComboBox) control;
+                        MetroComboBox combo = (MetroComboBox)control;
                         combo.Text = "";
                         combo.Items.Clear();
                     }
