@@ -35,6 +35,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUpdateMedicine));
             this.picBack = new System.Windows.Forms.PictureBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.picSearch = new System.Windows.Forms.PictureBox();
             this.picClear = new System.Windows.Forms.PictureBox();
             this.btnUpdateDetails = new MetroFramework.Controls.MetroButton();
             this.txtMRP = new MetroFramework.Controls.MetroTextBox();
@@ -47,18 +48,19 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.picSearch = new System.Windows.Forms.PictureBox();
             this.panelData = new System.Windows.Forms.Panel();
             this.gridData = new MetroFramework.Controls.MetroGrid();
             this.erp = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.wrng = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClear)).BeginInit();
             this.panelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wrng)).BeginInit();
             this.SuspendLayout();
             // 
             // picBack
@@ -96,6 +98,18 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // picSearch
+            // 
+            this.picSearch.Image = global::MDAMS.Properties.Resources.search1;
+            this.picSearch.Location = new System.Drawing.Point(308, 257);
+            this.picSearch.Name = "picSearch";
+            this.picSearch.Size = new System.Drawing.Size(39, 36);
+            this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSearch.TabIndex = 5;
+            this.picSearch.TabStop = false;
+            this.toolTip1.SetToolTip(this.picSearch, "Search");
+            this.picSearch.Click += new System.EventHandler(this.picSearch_Click);
             // 
             // picClear
             // 
@@ -330,18 +344,6 @@
             this.metroLabel1.TabIndex = 2;
             this.metroLabel1.Text = "Drug No: ";
             // 
-            // picSearch
-            // 
-            this.picSearch.Image = global::MDAMS.Properties.Resources.search1;
-            this.picSearch.Location = new System.Drawing.Point(308, 257);
-            this.picSearch.Name = "picSearch";
-            this.picSearch.Size = new System.Drawing.Size(39, 36);
-            this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picSearch.TabIndex = 5;
-            this.picSearch.TabStop = false;
-            this.toolTip1.SetToolTip(this.picSearch, "Search");
-            this.picSearch.Click += new System.EventHandler(this.picSearch_Click);
-            // 
             // panelData
             // 
             this.panelData.Controls.Add(this.gridData);
@@ -393,11 +395,17 @@
             this.gridData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridData.Size = new System.Drawing.Size(473, 210);
             this.gridData.TabIndex = 0;
+            this.gridData.SelectionChanged += new System.EventHandler(this.gridData_SelectionChanged);
             // 
             // erp
             // 
             this.erp.ContainerControl = this;
             this.erp.Icon = ((System.Drawing.Icon)(resources.GetObject("erp.Icon")));
+            // 
+            // wrng
+            // 
+            this.wrng.ContainerControl = this;
+            this.wrng.Icon = ((System.Drawing.Icon)(resources.GetObject("wrng.Icon")));
             // 
             // FrmUpdateMedicine
             // 
@@ -413,11 +421,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClear)).EndInit();
             this.panelData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wrng)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,5 +452,6 @@
         private MetroFramework.Controls.MetroGrid gridData;
         private System.Windows.Forms.ErrorProvider erp;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ErrorProvider wrng;
     }
 }
