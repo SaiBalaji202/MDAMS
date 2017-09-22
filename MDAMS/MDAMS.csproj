@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MDAMS</RootNamespace>
     <AssemblyName>MDAMS</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -62,6 +62,9 @@
     <Reference Include="Remotion.Interfaces, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
       <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.Interfaces.dll</HintPath>
     </Reference>
+    <Reference Include="SplashScreen, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SplashScreen.Winforms.1.0.0\lib\SplashScreen.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -84,6 +87,12 @@
   <ItemGroup>
     <Compile Include="AppGlobalDatas.cs" />
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="FrmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHome.Designer.cs">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmImportHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +126,15 @@
     <Compile Include="FrmUpdateHome.Designer.cs">
       <DependentUpon>FrmUpdateHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSplashScreen.Designer.cs">
+      <DependentUpon>FrmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmHome.resx">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmImportHome.resx">
       <DependentUpon>FrmImportHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +159,9 @@
     </Compile>
     <EmbeddedResource Include="FrmUpdateHome.resx">
       <DependentUpon>FrmUpdateHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSplashScreen.resx">
+      <DependentUpon>FrmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -177,6 +198,13 @@
     <None Include="bin\Debug\icons\load1.gif" />
     <None Include="bin\Debug\icons\search1.png" />
     <None Include="bin\Debug\icons\update.png" />
+    <None Include="bin\Debug\icons\Logo.png" />
+    <None Include="bin\Debug\icons\bill.png" />
+    <None Include="bin\Debug\icons\Delete_Icon.png" />
+    <None Include="bin\Debug\icons\insert_table1600.png" />
+    <None Include="bin\Debug\icons\report-icon-23.png" />
+    <None Include="bin\Debug\icons\view-512.png" />
+    <None Include="bin\Debug\icons\website-update.png" />
     <Content Include="Scripts\LICENSE.txt" />
     <Content Include="Scripts\polymer-micro.html" />
     <Content Include="Scripts\polymer-mini.html" />

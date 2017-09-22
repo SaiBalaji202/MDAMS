@@ -93,7 +93,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(39, 67);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(473, 309);
+            this.metroPanel1.Size = new System.Drawing.Size(605, 313);
             this.metroPanel1.TabIndex = 7;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -102,7 +102,7 @@
             // picSearch
             // 
             this.picSearch.Image = global::MDAMS.Properties.Resources.search1;
-            this.picSearch.Location = new System.Drawing.Point(308, 257);
+            this.picSearch.Location = new System.Drawing.Point(342, 255);
             this.picSearch.Name = "picSearch";
             this.picSearch.Size = new System.Drawing.Size(39, 36);
             this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -114,7 +114,7 @@
             // picClear
             // 
             this.picClear.Image = global::MDAMS.Properties.Resources.clear3;
-            this.picClear.Location = new System.Drawing.Point(90, 257);
+            this.picClear.Location = new System.Drawing.Point(124, 255);
             this.picClear.Name = "picClear";
             this.picClear.Size = new System.Drawing.Size(39, 36);
             this.picClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -125,7 +125,7 @@
             // 
             // btnUpdateDetails
             // 
-            this.btnUpdateDetails.Location = new System.Drawing.Point(159, 257);
+            this.btnUpdateDetails.Location = new System.Drawing.Point(193, 255);
             this.btnUpdateDetails.Name = "btnUpdateDetails";
             this.btnUpdateDetails.Size = new System.Drawing.Size(114, 36);
             this.btnUpdateDetails.TabIndex = 4;
@@ -151,7 +151,7 @@
             this.txtMRP.CustomButton.UseSelectable = true;
             this.txtMRP.CustomButton.Visible = false;
             this.txtMRP.Lines = new string[0];
-            this.txtMRP.Location = new System.Drawing.Point(178, 169);
+            this.txtMRP.Location = new System.Drawing.Point(212, 167);
             this.txtMRP.MaxLength = 32767;
             this.txtMRP.Name = "txtMRP";
             this.txtMRP.PasswordChar = '\0';
@@ -184,7 +184,7 @@
             this.txtUnitSize.CustomButton.UseSelectable = true;
             this.txtUnitSize.CustomButton.Visible = false;
             this.txtUnitSize.Lines = new string[0];
-            this.txtUnitSize.Location = new System.Drawing.Point(178, 124);
+            this.txtUnitSize.Location = new System.Drawing.Point(212, 122);
             this.txtUnitSize.MaxLength = 32767;
             this.txtUnitSize.Name = "txtUnitSize";
             this.txtUnitSize.PasswordChar = '\0';
@@ -217,7 +217,7 @@
             this.txtGrp.CustomButton.UseSelectable = true;
             this.txtGrp.CustomButton.Visible = false;
             this.txtGrp.Lines = new string[0];
-            this.txtGrp.Location = new System.Drawing.Point(178, 215);
+            this.txtGrp.Location = new System.Drawing.Point(212, 213);
             this.txtGrp.MaxLength = 32767;
             this.txtGrp.Name = "txtGrp";
             this.txtGrp.PasswordChar = '\0';
@@ -250,7 +250,7 @@
             this.txtMedName.CustomButton.UseSelectable = true;
             this.txtMedName.CustomButton.Visible = false;
             this.txtMedName.Lines = new string[0];
-            this.txtMedName.Location = new System.Drawing.Point(178, 76);
+            this.txtMedName.Location = new System.Drawing.Point(212, 74);
             this.txtMedName.MaxLength = 32767;
             this.txtMedName.Name = "txtMedName";
             this.txtMedName.PasswordChar = '\0';
@@ -283,7 +283,7 @@
             this.txtDrugNo.CustomButton.UseSelectable = true;
             this.txtDrugNo.CustomButton.Visible = false;
             this.txtDrugNo.Lines = new string[0];
-            this.txtDrugNo.Location = new System.Drawing.Point(178, 24);
+            this.txtDrugNo.Location = new System.Drawing.Point(212, 22);
             this.txtDrugNo.MaxLength = 32767;
             this.txtDrugNo.Name = "txtDrugNo";
             this.txtDrugNo.PasswordChar = '\0';
@@ -302,7 +302,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(28, 219);
+            this.metroLabel5.Location = new System.Drawing.Point(62, 217);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(125, 19);
             this.metroLabel5.TabIndex = 2;
@@ -311,7 +311,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(28, 173);
+            this.metroLabel4.Location = new System.Drawing.Point(62, 171);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(44, 19);
             this.metroLabel4.TabIndex = 2;
@@ -320,7 +320,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(28, 128);
+            this.metroLabel3.Location = new System.Drawing.Point(62, 126);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(66, 19);
             this.metroLabel3.TabIndex = 2;
@@ -329,7 +329,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(28, 80);
+            this.metroLabel2.Location = new System.Drawing.Point(62, 78);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(140, 19);
             this.metroLabel2.TabIndex = 2;
@@ -338,7 +338,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(28, 28);
+            this.metroLabel1.Location = new System.Drawing.Point(62, 26);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(67, 19);
             this.metroLabel1.TabIndex = 2;
@@ -411,7 +411,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 635);
+            this.ClientSize = new System.Drawing.Size(667, 635);
             this.Controls.Add(this.panelData);
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.picBack);

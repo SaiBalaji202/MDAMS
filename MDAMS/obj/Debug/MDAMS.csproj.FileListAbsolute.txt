@@ -27,3 +27,6 @@ F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\LinqToExcel.xml
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmImportHome.resources
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmUpdateMedicine.resources
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmUpdateHome.resources
+F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmSplashScreen.resources
+F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmHome.resources
+F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\SplashScreen.dll

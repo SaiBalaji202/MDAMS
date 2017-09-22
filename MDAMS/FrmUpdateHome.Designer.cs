@@ -50,6 +50,8 @@
             this.picUpdateFile.TabStop = false;
             this.toolTip1.SetToolTip(this.picUpdateFile, "Update Through Excel Data");
             this.picUpdateFile.Click += new System.EventHandler(this.picUpdateFile_Click);
+            this.picUpdateFile.MouseEnter += new System.EventHandler(this.picUpdateFile_MouseEnter);
+            this.picUpdateFile.MouseLeave += new System.EventHandler(this.picUpdateFile_MouseLeave);
             // 
             // picUpdateMedicineData
             // 
@@ -61,6 +63,8 @@
             this.picUpdateMedicineData.TabIndex = 3;
             this.picUpdateMedicineData.TabStop = false;
             this.toolTip1.SetToolTip(this.picUpdateMedicineData, "Update Medicine Data");
+            this.picUpdateMedicineData.MouseEnter += new System.EventHandler(this.picUpdateMedicineData_MouseEnter);
+            this.picUpdateMedicineData.MouseLeave += new System.EventHandler(this.picUpdateMedicineData_MouseLeave);
             // 
             // hoverToolName
             // 
@@ -88,6 +92,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Name = "FrmUpdateHome";
             this.Text = "Update Medicine Details";
+            this.Load += new System.EventHandler(this.FrmUpdateHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picUpdateFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdateMedicineData)).EndInit();
             this.statusStrip1.ResumeLayout(false);

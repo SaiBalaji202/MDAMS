@@ -162,7 +162,7 @@ namespace MDAMS
             //string strQuery = String.Format("INSERT INTO TBLMEDICINES(CDRUGNO, CPRODUCT, CUNITSIZE, CMRP, CTG) VALUES");
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string strQuery = String.Format(" INTO TBLMEDICINES(CDRUGNO, CPRODUCT, CUNITSIZE, CMRP, CTG) VALUES");
+                string strQuery = String.Format("INSERT INTO TBLMEDICINES(CDRUGNO, CPRODUCT, CUNITSIZE, CMRP, CTG) VALUES");
                 strQuery = strQuery + String.Format("({0}, '{1}', '{2}', {3}, '{4}');", dt.Rows[i][1].ToString().Trim(), dt.Rows[i][2].ToString().Trim(),
                                dt.Rows[i][3].ToString().Trim(), dt.Rows[i][4].ToString().Trim(), "");
                 if (_dbHelper.UpdateQuery(strQuery) == -1)
