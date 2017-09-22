@@ -10,7 +10,6 @@ F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\WinFormAnimation.dll
 F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\CircularProgressBar.xml
 F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\WinFormAnimation.xml
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.csprojResolveAssemblyReference.cache
-F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.Form1.resources
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.Properties.Resources.resources
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.csproj.GenerateResource.Cache
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.exe
@@ -25,3 +24,6 @@ F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\Remotion.Data.Linq.dll
 F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\Remotion.dll
 F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\Remotion.Interfaces.dll
 F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\LinqToExcel.xml
+F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmImportHome.resources
+F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmUpdateMedicine.resources
+F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmUpdateHome.resources

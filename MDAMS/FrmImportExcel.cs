@@ -16,7 +16,7 @@ namespace MDAMS
         private Excel.Application _excelApp;
         private Excel.Workbook _excelWorkbook;
         private Excel.Worksheet _excelWorksheet;
-        private string _strFilePath, _strSheetName;
+        private string _strFilePath;
         DatabaseHelper _dbHelper;
 
         #region Constructors
@@ -218,7 +218,6 @@ namespace MDAMS
         }
 
         #endregion
-
 
     }
 }

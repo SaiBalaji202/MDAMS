@@ -1,6 +1,6 @@
 ﻿namespace MDAMS
 {
-    partial class FrmMedicalDetails
+    partial class FrmUpdateMedicine
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMedicalDetails));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUpdateMedicine));
+            this.picBack = new System.Windows.Forms.PictureBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.picClear = new System.Windows.Forms.PictureBox();
-            this.btnAddDetails = new MetroFramework.Controls.MetroButton();
+            this.btnUpdateDetails = new MetroFramework.Controls.MetroButton();
             this.txtMRP = new MetroFramework.Controls.MetroTextBox();
             this.txtUnitSize = new MetroFramework.Controls.MetroTextBox();
             this.txtGrp = new MetroFramework.Controls.MetroTextBox();
@@ -43,20 +47,35 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.picBack = new System.Windows.Forms.PictureBox();
+            this.picSearch = new System.Windows.Forms.PictureBox();
+            this.panelData = new System.Windows.Forms.Panel();
+            this.gridData = new MetroFramework.Controls.MetroGrid();
             this.erp = new System.Windows.Forms.ErrorProvider(this.components);
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClear)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
+            this.panelData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).BeginInit();
             this.SuspendLayout();
             // 
+            // picBack
+            // 
+            this.picBack.Image = global::MDAMS.Properties.Resources.back3;
+            this.picBack.Location = new System.Drawing.Point(13, 21);
+            this.picBack.Name = "picBack";
+            this.picBack.Size = new System.Drawing.Size(39, 36);
+            this.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBack.TabIndex = 6;
+            this.picBack.TabStop = false;
+            // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.picSearch);
             this.metroPanel1.Controls.Add(this.picClear);
-            this.metroPanel1.Controls.Add(this.btnAddDetails);
+            this.metroPanel1.Controls.Add(this.btnUpdateDetails);
             this.metroPanel1.Controls.Add(this.txtMRP);
             this.metroPanel1.Controls.Add(this.txtUnitSize);
             this.metroPanel1.Controls.Add(this.txtGrp);
@@ -70,10 +89,10 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(24, 76);
+            this.metroPanel1.Location = new System.Drawing.Point(39, 67);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(473, 309);
-            this.metroPanel1.TabIndex = 0;
+            this.metroPanel1.TabIndex = 7;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
@@ -87,23 +106,24 @@
             this.picClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picClear.TabIndex = 5;
             this.picClear.TabStop = false;
-            this.toolTip1.SetToolTip(this.picClear, "Clear All Data");
+            this.toolTip1.SetToolTip(this.picClear, "Clear All");
             this.picClear.Click += new System.EventHandler(this.picClear_Click);
-            this.picClear.MouseEnter += new System.EventHandler(this.picClear_MouseEnter);
-            this.picClear.MouseLeave += new System.EventHandler(this.picClear_MouseLeave);
             // 
-            // btnAddDetails
+            // btnUpdateDetails
             // 
-            this.btnAddDetails.Location = new System.Drawing.Point(159, 257);
-            this.btnAddDetails.Name = "btnAddDetails";
-            this.btnAddDetails.Size = new System.Drawing.Size(114, 36);
-            this.btnAddDetails.TabIndex = 4;
-            this.btnAddDetails.Text = "Add Details";
-            this.btnAddDetails.UseSelectable = true;
-            this.btnAddDetails.Click += new System.EventHandler(this.btnAddDetails_Click);
+            this.btnUpdateDetails.Location = new System.Drawing.Point(159, 257);
+            this.btnUpdateDetails.Name = "btnUpdateDetails";
+            this.btnUpdateDetails.Size = new System.Drawing.Size(114, 36);
+            this.btnUpdateDetails.TabIndex = 4;
+            this.btnUpdateDetails.Text = "Update Details";
+            this.toolTip1.SetToolTip(this.btnUpdateDetails, "Update Data");
+            this.btnUpdateDetails.UseSelectable = true;
+            this.btnUpdateDetails.Click += new System.EventHandler(this.btnUpdateDetails_Click);
             // 
             // txtMRP
             // 
+            this.txtMRP.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtMRP.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
@@ -131,9 +151,12 @@
             this.txtMRP.UseSelectable = true;
             this.txtMRP.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtMRP.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtMRP.TextChanged += new System.EventHandler(this.txtDrugNo_TextChanged);
             // 
             // txtUnitSize
             // 
+            this.txtUnitSize.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtUnitSize.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
@@ -161,9 +184,12 @@
             this.txtUnitSize.UseSelectable = true;
             this.txtUnitSize.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtUnitSize.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtUnitSize.TextChanged += new System.EventHandler(this.txtDrugNo_TextChanged);
             // 
             // txtGrp
             // 
+            this.txtGrp.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtGrp.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
@@ -191,9 +217,12 @@
             this.txtGrp.UseSelectable = true;
             this.txtGrp.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtGrp.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtGrp.TextChanged += new System.EventHandler(this.txtDrugNo_TextChanged);
             // 
             // txtMedName
             // 
+            this.txtMedName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtMedName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
@@ -221,9 +250,12 @@
             this.txtMedName.UseSelectable = true;
             this.txtMedName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtMedName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtMedName.TextChanged += new System.EventHandler(this.txtDrugNo_TextChanged);
             // 
             // txtDrugNo
             // 
+            this.txtDrugNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtDrugNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
@@ -251,6 +283,7 @@
             this.txtDrugNo.UseSelectable = true;
             this.txtDrugNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDrugNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtDrugNo.TextChanged += new System.EventHandler(this.txtDrugNo_TextChanged);
             // 
             // metroLabel5
             // 
@@ -297,49 +330,93 @@
             this.metroLabel1.TabIndex = 2;
             this.metroLabel1.Text = "Drug No: ";
             // 
-            // picBack
+            // picSearch
             // 
-            this.picBack.Image = global::MDAMS.Properties.Resources.back3;
-            this.picBack.Location = new System.Drawing.Point(23, 24);
-            this.picBack.Name = "picBack";
-            this.picBack.Size = new System.Drawing.Size(39, 36);
-            this.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBack.TabIndex = 5;
-            this.picBack.TabStop = false;
-            this.toolTip1.SetToolTip(this.picBack, "Back");
-            this.picBack.Click += new System.EventHandler(this.picBack_Click);
-            this.picBack.MouseEnter += new System.EventHandler(this.picBack_MouseEnter);
-            this.picBack.MouseLeave += new System.EventHandler(this.picBack_MouseLeave);
+            this.picSearch.Image = global::MDAMS.Properties.Resources.search1;
+            this.picSearch.Location = new System.Drawing.Point(308, 257);
+            this.picSearch.Name = "picSearch";
+            this.picSearch.Size = new System.Drawing.Size(39, 36);
+            this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSearch.TabIndex = 5;
+            this.picSearch.TabStop = false;
+            this.toolTip1.SetToolTip(this.picSearch, "Search");
+            this.picSearch.Click += new System.EventHandler(this.picSearch_Click);
+            // 
+            // panelData
+            // 
+            this.panelData.Controls.Add(this.gridData);
+            this.panelData.Location = new System.Drawing.Point(39, 402);
+            this.panelData.Name = "panelData";
+            this.panelData.Size = new System.Drawing.Size(473, 210);
+            this.panelData.TabIndex = 8;
+            // 
+            // gridData
+            // 
+            this.gridData.AllowUserToResizeRows = false;
+            this.gridData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gridData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridData.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gridData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridData.EnableHeadersVisualStyles = false;
+            this.gridData.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.gridData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridData.Location = new System.Drawing.Point(0, 0);
+            this.gridData.Name = "gridData";
+            this.gridData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.gridData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridData.Size = new System.Drawing.Size(473, 210);
+            this.gridData.TabIndex = 0;
             // 
             // erp
             // 
             this.erp.ContainerControl = this;
             this.erp.Icon = ((System.Drawing.Icon)(resources.GetObject("erp.Icon")));
             // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(183, 333);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(114, 36);
-            this.metroButton1.TabIndex = 4;
-            this.metroButton1.Text = "Add Details";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.btnAddDetails_Click);
-            // 
-            // FrmMedicalDetails
+            // FrmUpdateMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 408);
-            this.Controls.Add(this.picBack);
+            this.ClientSize = new System.Drawing.Size(551, 635);
+            this.Controls.Add(this.panelData);
             this.Controls.Add(this.metroPanel1);
-            this.Controls.Add(this.metroButton1);
-            this.Name = "FrmMedicalDetails";
-            this.Text = "      New Medical Details";
+            this.Controls.Add(this.picBack);
+            this.Name = "FrmUpdateMedicine";
+            this.Text = "     Update Medicine Details";
+            this.Load += new System.EventHandler(this.FrmUpdateMedicine_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picBack)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClear)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
+            this.panelData.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).EndInit();
             this.ResumeLayout(false);
 
@@ -347,22 +424,24 @@
 
         #endregion
 
+        private System.Windows.Forms.PictureBox picBack;
         private MetroFramework.Controls.MetroPanel metroPanel1;
+        private System.Windows.Forms.PictureBox picClear;
+        private MetroFramework.Controls.MetroButton btnUpdateDetails;
+        private MetroFramework.Controls.MetroTextBox txtMRP;
+        private MetroFramework.Controls.MetroTextBox txtUnitSize;
+        private MetroFramework.Controls.MetroTextBox txtGrp;
+        private MetroFramework.Controls.MetroTextBox txtMedName;
+        private MetroFramework.Controls.MetroTextBox txtDrugNo;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox txtDrugNo;
-        private MetroFramework.Controls.MetroTextBox txtMRP;
-        private MetroFramework.Controls.MetroTextBox txtUnitSize;
-        private MetroFramework.Controls.MetroTextBox txtGrp;
-        private MetroFramework.Controls.MetroTextBox txtMedName;
-        private MetroFramework.Controls.MetroButton btnAddDetails;
-        private System.Windows.Forms.PictureBox picBack;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox picSearch;
+        private System.Windows.Forms.Panel panelData;
+        private MetroFramework.Controls.MetroGrid gridData;
         private System.Windows.Forms.ErrorProvider erp;
-        private System.Windows.Forms.PictureBox picClear;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

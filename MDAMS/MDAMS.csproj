@@ -84,11 +84,11 @@
   <ItemGroup>
     <Compile Include="AppGlobalDatas.cs" />
     <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmImportHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmImportHome.Designer.cs">
+      <DependentUpon>FrmImportHome.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmImportExcel.cs">
       <SubType>Form</SubType>
@@ -102,17 +102,32 @@
     <Compile Include="FrmMedicalDetails.Designer.cs">
       <DependentUpon>FrmMedicalDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUpdateMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateMedicine.Designer.cs">
+      <DependentUpon>FrmUpdateMedicine.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmUpdateHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateHome.Designer.cs">
+      <DependentUpon>FrmUpdateHome.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmImportHome.resx">
+      <DependentUpon>FrmImportHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmImportExcel.resx">
       <DependentUpon>FrmImportExcel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMedicalDetails.resx">
       <DependentUpon>FrmMedicalDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateMedicine.resx">
+      <DependentUpon>FrmUpdateMedicine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -124,6 +139,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="FrmUpdateHome.resx">
+      <DependentUpon>FrmUpdateHome.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -157,6 +175,8 @@
     <None Include="bin\Debug\icons\giphy.gif" />
     <None Include="bin\Debug\icons\giphy_2.gif" />
     <None Include="bin\Debug\icons\load1.gif" />
+    <None Include="bin\Debug\icons\search1.png" />
+    <None Include="bin\Debug\icons\update.png" />
     <Content Include="Scripts\LICENSE.txt" />
     <Content Include="Scripts\polymer-micro.html" />
     <Content Include="Scripts\polymer-mini.html" />

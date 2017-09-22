@@ -1,6 +1,6 @@
 ﻿namespace MDAMS
 {
-    partial class Form1
+    partial class FrmImportHome
     {
         /// <summary>
         /// Required designer variable.

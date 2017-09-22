@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace MDAMS
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class FrmImportHome : MetroFramework.Forms.MetroForm
     {
         private string pbImportExcelTip = "Import Excel Data";
         private string pbImportMedicalTip = "Add New Medicine Data";
 
-        public Form1()
+        public FrmImportHome()
         {
             InitializeComponent();
             InitControls();
