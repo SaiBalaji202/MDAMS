@@ -35,6 +35,8 @@
             this.picViewMedicines = new System.Windows.Forms.PictureBox();
             this.picUpdateMedicine = new System.Windows.Forms.PictureBox();
             this.picAddMedicine = new System.Windows.Forms.PictureBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.hoverToolName = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelGroupControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDeleteMedicine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGenerateReport)).BeginInit();
@@ -42,10 +44,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.picViewMedicines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdateMedicine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAddMedicine)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelGroupControls
             // 
+            this.panelGroupControls.Controls.Add(this.statusStrip1);
             this.panelGroupControls.Controls.Add(this.picDeleteMedicine);
             this.panelGroupControls.Controls.Add(this.picGenerateReport);
             this.panelGroupControls.Controls.Add(this.picPrepareBill);
@@ -112,6 +116,7 @@
             this.picViewMedicines.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picViewMedicines.TabIndex = 2;
             this.picViewMedicines.TabStop = false;
+            this.picViewMedicines.Click += new System.EventHandler(this.picViewMedicines_Click);
             this.picViewMedicines.MouseEnter += new System.EventHandler(this.picViewMedicines_MouseEnter);
             this.picViewMedicines.MouseLeave += new System.EventHandler(this.picViewMedicines_MouseLeave);
             // 
@@ -143,6 +148,22 @@
             this.picAddMedicine.MouseEnter += new System.EventHandler(this.picAddMedicine_MouseEnter);
             this.picAddMedicine.MouseLeave += new System.EventHandler(this.picAddMedicine_MouseLeave);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hoverToolName});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 298);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(438, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // hoverToolName
+            // 
+            this.hoverToolName.Name = "hoverToolName";
+            this.hoverToolName.Size = new System.Drawing.Size(118, 17);
+            this.hoverToolName.Text = "toolStripStatusLabel1";
+            // 
             // FrmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,13 +172,17 @@
             this.Controls.Add(this.panelGroupControls);
             this.Name = "FrmHome";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.FrmHome_Load);
             this.panelGroupControls.ResumeLayout(false);
+            this.panelGroupControls.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDeleteMedicine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGenerateReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPrepareBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picViewMedicines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdateMedicine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAddMedicine)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -171,5 +196,7 @@
         private System.Windows.Forms.PictureBox picGenerateReport;
         private System.Windows.Forms.PictureBox picPrepareBill;
         private System.Windows.Forms.PictureBox picViewMedicines;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel hoverToolName;
     }
 }
