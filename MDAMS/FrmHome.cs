@@ -1,7 +1,6 @@
 ﻿using SplashScreen;
 using System;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace MDAMS
@@ -10,16 +9,16 @@ namespace MDAMS
     {
         public FrmHome()
         {
-            Thread thread = new Thread(new ThreadStart(Splash));
-            thread.Start();
+            //Thread thread = new Thread(new ThreadStart(Splash));
+            //thread.Start();
 
             InitializeComponent();
-            string str = String.Empty;
-            for (int i = 0; i < 100000; i++)
-            {
-                str += i.ToString();
-            }
-            thread.Abort();
+            //string str = String.Empty;
+            //for (int i = 0; i < 100000; i++)
+            //{
+            //    str += i.ToString();
+            //}
+            //thread.Abort();
         }
 
         public void Splash()
@@ -54,76 +53,116 @@ namespace MDAMS
 
         private void picAddMedicine_MouseEnter(object sender, EventArgs e)
         {
+            ClearHoverEffects();
             picAddMedicine.BackColor = Color.LightGray;
+            picAddMedicine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             hoverToolName.Text = "Insert New Medicine";
         }
 
         private void picAddMedicine_MouseLeave(object sender, EventArgs e)
         {
             picAddMedicine.BackColor = Color.White;
+            picAddMedicine.BorderStyle = System.Windows.Forms.BorderStyle.None;
             hoverToolName.Text = "";
         }
 
         private void picUpdateMedicine_MouseEnter(object sender, EventArgs e)
         {
+            ClearHoverEffects();
             picUpdateMedicine.BackColor = Color.LightGray;
+            picUpdateMedicine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             hoverToolName.Text = "Update Medicine Details";
         }
 
         private void picUpdateMedicine_MouseLeave(object sender, EventArgs e)
         {
             picUpdateMedicine.BackColor = Color.White;
+            picUpdateMedicine.BorderStyle = System.Windows.Forms.BorderStyle.None;
             hoverToolName.Text = "";
         }
 
         private void picDeleteMedicine_MouseEnter(object sender, EventArgs e)
         {
+            ClearHoverEffects();
             picDeleteMedicine.BackColor = Color.LightGray;
+            picDeleteMedicine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             hoverToolName.Text = "Delete Medicine";
         }
 
         private void picDeleteMedicine_MouseLeave(object sender, EventArgs e)
         {
             picDeleteMedicine.BackColor = Color.White;
+            picDeleteMedicine.BorderStyle = System.Windows.Forms.BorderStyle.None;
             hoverToolName.Text = "";
         }
 
         private void picViewMedicines_MouseEnter(object sender, EventArgs e)
         {
+            ClearHoverEffects();
             picViewMedicines.BackColor = Color.LightGray;
+            picViewMedicines.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             hoverToolName.Text = "View Medicine";
         }
 
         private void picViewMedicines_MouseLeave(object sender, EventArgs e)
         {
             picViewMedicines.BackColor = Color.White;
+            picViewMedicines.BorderStyle = System.Windows.Forms.BorderStyle.None;
             hoverToolName.Text = "";
         }
 
         private void picPrepareBill_MouseEnter(object sender, EventArgs e)
         {
+            ClearHoverEffects();
             picPrepareBill.BackColor = Color.LightGray;
+            picPrepareBill.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             hoverToolName.Text = "Prepare Bill";
         }
 
         private void picPrepareBill_MouseLeave(object sender, EventArgs e)
         {
             picPrepareBill.BackColor = Color.White;
+            picPrepareBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
             hoverToolName.Text = "";
         }
 
         private void picGenerateReport_MouseEnter(object sender, EventArgs e)
         {
+            ClearHoverEffects();
             picGenerateReport.BackColor = Color.LightGray;
+            picGenerateReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             hoverToolName.Text = "Generate Monthly Report";
         }
 
         private void picGenerateReport_MouseLeave(object sender, EventArgs e)
         {
             picGenerateReport.BackColor = Color.White;
+            picGenerateReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
             hoverToolName.Text = "";
         }
 
+        private void ClearHoverEffects()
+        {
+            picAddMedicine.BackColor = Color.White;
+            picAddMedicine.BorderStyle = System.Windows.Forms.BorderStyle.None;
+
+            picUpdateMedicine.BackColor = Color.White;
+            picUpdateMedicine.BorderStyle = System.Windows.Forms.BorderStyle.None;
+
+            picDeleteMedicine.BackColor = Color.White;
+            picDeleteMedicine.BorderStyle = System.Windows.Forms.BorderStyle.None;
+
+            picViewMedicines.BackColor = Color.White;
+            picViewMedicines.BorderStyle = System.Windows.Forms.BorderStyle.None;
+
+            picPrepareBill.BackColor = Color.White;
+            picPrepareBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
+
+            picGenerateReport.BackColor = Color.White;
+            picGenerateReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
+
+            hoverToolName.Text = String.Empty;
+        }
 
         #endregion
 
