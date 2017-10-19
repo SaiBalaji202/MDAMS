@@ -131,6 +131,7 @@
             this.txtMRP.UseSelectable = true;
             this.txtMRP.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtMRP.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtMRP.Validating += new System.ComponentModel.CancelEventHandler(this.txtMRP_Validating);
             // 
             // txtUnitSize
             // 
@@ -251,6 +252,7 @@
             this.txtDrugNo.UseSelectable = true;
             this.txtDrugNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDrugNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtDrugNo.Validating += new System.ComponentModel.CancelEventHandler(this.txtDrugNo_Validating);
             // 
             // metroLabel5
             // 

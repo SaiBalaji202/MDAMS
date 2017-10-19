@@ -111,6 +111,12 @@
     <Compile Include="FrmMedicalDetails.Designer.cs">
       <DependentUpon>FrmMedicalDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUpdateExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateExcel.Designer.cs">
+      <DependentUpon>FrmUpdateExcel.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUpdateMedicine.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMedicalDetails.resx">
       <DependentUpon>FrmMedicalDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateExcel.resx">
+      <DependentUpon>FrmUpdateExcel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateMedicine.resx">
       <DependentUpon>FrmUpdateMedicine.cs</DependentUpon>
@@ -205,6 +214,12 @@
     <None Include="bin\Debug\icons\report-icon-23.png" />
     <None Include="bin\Debug\icons\view-512.png" />
     <None Include="bin\Debug\icons\website-update.png" />
+    <None Include="Resources\3.gif" />
+    <None Include="Resources\30.gif" />
+    <None Include="Resources\301.gif" />
+    <None Include="Resources\302.gif" />
+    <None Include="Resources\103.gif" />
+    <None Include="Resources\739.gif" />
     <Content Include="Scripts\LICENSE.txt" />
     <Content Include="Scripts\polymer-micro.html" />
     <Content Include="Scripts\polymer-mini.html" />

@@ -2,6 +2,7 @@
 using MetroFramework;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace MDAMS
         private Excel.Worksheet _excelWorksheet;
         private string _strFilePath;
         DatabaseHelper _dbHelper;
+        private Task _backTask;
 
         #region Constructors
 
@@ -31,40 +33,88 @@ namespace MDAMS
 
         #region Handlers
 
+        #region Hover
+
         private void picBrowseExcel_MouseEnter(object sender, EventArgs e)
         {
-            picBrowseExcel.BackColor = Color.LightGray;
-            picExcel.BackColor = Color.LightGray;
+            HoverOn();
         }
 
         private void picBrowseExcel_MouseLeave(object sender, EventArgs e)
         {
+            HoverOff();
+        }
+
+
+        private void picExcel_MouseEnter(object sender, EventArgs e)
+        {
+            HoverOn();
+        }
+
+        private void picExcel_MouseLeave(object sender, EventArgs e)
+        {
+            HoverOff();
+        }
+
+        private void HoverOn()
+        {
+            picBrowseExcel.BackColor = Color.LightGray;
+            picExcel.BackColor = Color.LightGray;
+            picBrowseExcel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            picExcel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+        }
+
+        private void HoverOff()
+        {
             picBrowseExcel.BackColor = Color.White;
             picExcel.BackColor = Color.White;
+            picBrowseExcel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            picExcel.BorderStyle = System.Windows.Forms.BorderStyle.None;
         }
 
-        private async void comboAvailSheets_SelectedIndexChanged(object sender, EventArgs e)
+        #endregion
+
+        private void comboAvailSheets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ReadExcel();
+            if (toggleOnOff.Checked)
+                btnImportToDB.PerformClick();
         }
 
-        private async void btnImportToDB_Click(object sender, EventArgs e)
+        private void btnImportToDB_Click(object sender, EventArgs e)
         {
-            ReadExcel();
+            CtrlProgress(AppGlobalDatas.Progress.Visible);
+            _backTask = new Task(() =>
+            {
+                ReadExcel();
+                CtrlProgress(AppGlobalDatas.Progress.InVisible);
+            });
+            _backTask.Start();
         }
 
-        private async void picBrowseExcel_Click(object sender, EventArgs e)
+        private void picBrowseExcel_Click(object sender, EventArgs e)
         {
-            //picLoad.Visible = true;
-            await OnBrowseExcelClick();
-            //picLoad.Visible = false;
-
+            string _strFile = BrowseExcel();
+            CtrlProgress(AppGlobalDatas.Progress.Visible);
+            _backTask = new Task(() =>
+                            {
+                                OnBrowseExcelClick(_strFilePath);
+                                CtrlProgress(AppGlobalDatas.Progress.InVisible);
+                            });
+            _backTask.Start();
         }
 
-        private async void picExcel_Click(object sender, EventArgs e)
+        private void toggleOnOff_CheckedChanged(object sender, EventArgs e)
         {
-            await OnBrowseExcelClick();
+            if (toggleOnOff.Checked == false)
+            {
+                toggleOnOff.Text = @"Auto Import Off";
+            }
+            else
+            {
+                toggleOnOff.Text = @"Auto Import On";
+            }
         }
+
         #endregion
 
         #region UserDefinedFunctions
@@ -82,64 +132,62 @@ namespace MDAMS
             //_excelWorksheet = (Excel.Worksheet) _excelWorkbook.Worksheets.Item[index + 1];
         }
 
-        private async void ReadExcel()
+        #region LongRunningTasks
+
+        private void ReadExcel()
         {
             InitExcelApp(_strFilePath);
             _excelWorksheet = (Excel.Worksheet)_excelWorkbook.Worksheets.Item[Convert.ToInt32(comboAvailSheets.SelectedIndex) + 1];
 
-            DataTable dt = await Task.Run(() =>
+            var excelFile = new ExcelQueryFactory(_strFilePath);
+            var datasQueryable = from a in excelFile.Worksheet(comboAvailSheets.SelectedText) select a;
+
+            // var columnNames = datasQueryable.ElementAt(1);
+
+            DataTable dt = new DataTable();
+
+            int _rowCount = 0;
+            foreach (Row data in datasQueryable)
             {
-                var excelFile = new ExcelQueryFactory(_strFilePath);
-                var datasQueryable = from a in excelFile.Worksheet(comboAvailSheets.SelectedText) select a;
-
-                // var columnNames = datasQueryable.ElementAt(1);
-
-                DataTable dataTable = new DataTable();
-
-                int _rowCount = 0;
-                foreach (Row data in datasQueryable)
+                if (_rowCount > 0)
                 {
-                    if (_rowCount > 0)
-                    {
 
-                        //Reading Processed Data From Excel
-                        List<string> objects = new List<string>();
-                        int _colCount = 0;
-                        foreach (Cell cell in data)
+                    //Reading Processed Data From Excel
+                    List<string> objects = new List<string>();
+                    int _colCount = 0;
+                    foreach (Cell cell in data)
+                    {
+                        string str = cell.Value.ToString();
+                        if (str.Equals("") == false)
                         {
-                            string str = cell.Value.ToString();
-                            if (str.Equals("") == false)
+                            str = str.Replace("\"", string.Empty).Replace("'", string.Empty);
+                            objects.Add(str);
+                            ++_colCount;
+                        }
+                    }
+                    //Adding Records to Table, if the row is not empty
+                    if (_colCount > 0)
+                        dt.Rows.Add(objects.ToArray());
+                }
+                //Adding Column Headers to DataTable
+                else if (_rowCount == 0)
+                {
+                    foreach (var cell in data)
+                    {
+                        string str = cell.ToString();
+                        if (!(str.Equals("")))
+                        {
+                            if (str.Contains("'"))
                             {
                                 str = str.Replace("\"", string.Empty).Replace("'", string.Empty);
-                                objects.Add(str);
-                                ++_colCount;
                             }
+                            dt.Columns.Add(str);
                         }
-                        //Adding Records to Table, if the row is not empty
-                        if (_colCount > 0)
-                            dataTable.Rows.Add(objects.ToArray());
                     }
-                    //Adding Column Headers to DataTable
-                    else if (_rowCount == 0)
-                    {
-                        foreach (var cell in data)
-                        {
-                            string str = cell.ToString();
-                            if (!(str.Equals("")))
-                            {
-                                if (str.Contains("'"))
-                                {
-                                    str = str.Replace("\"", string.Empty).Replace("'", string.Empty);
-                                }
-                                dataTable.Columns.Add(str);
-                            }
-                        }
-                        _rowCount++;
-                    }
+                    _rowCount++;
                 }
-                _excelApp.Quit();
-                return dataTable;
-            });
+            }
+            _excelApp.Quit();
 
             if (!(ImportExcelToDB(dt)))
             {
@@ -173,28 +221,36 @@ namespace MDAMS
             return flag;
         }
 
-        private async Task OnBrowseExcelClick()
+        #endregion
+
+        private string BrowseExcel()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Excel Files(*.xls, *.xlsx, *.csv) | *.xls; *.xlsx; *.csv";
+            openFileDialog.Filter = AppGlobalDatas.ExcelFilter;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 _strFilePath = openFileDialog.FileName;
-                InitExcelApp(_strFilePath);
-
-
-                comboAvailSheets.Items.Clear();
-                picLoad.Visible = true;
-                // ReSharper disable once ComplexConditionExpression
-                string[] strWorksheetNames = await Task.Run((Func<string[]>)ReadAllRecordsFromExcel);
-                picLoad.Visible = false;
-                foreach (var name in strWorksheetNames)
-                {
-                    comboAvailSheets.Items.Add(name);
-                }
-
-
             }
+            return _strFilePath;
+        }
+
+        private void OnBrowseExcelClick(string strFilePath)
+        {
+            //CtrlProgress(AppGlobalDatas.Progress.Visible);
+
+            InitExcelApp(strFilePath);
+
+            comboAvailSheets.Items.Clear();
+
+            // ReSharper disable once ComplexConditionExpression
+            string[] strWorksheetNames = ReadAllRecordsFromExcel();
+
+            foreach (var name in strWorksheetNames)
+            {
+                comboAvailSheets.Items.Add(name);
+            }
+
+            //CtrlProgress(AppGlobalDatas.Progress.InVisible);
         }
 
         private string[] ReadAllRecordsFromExcel()
@@ -205,6 +261,16 @@ namespace MDAMS
             foreach (Excel.Worksheet worksheet in _excelWorkbook.Worksheets)
                 strNames[i++] = worksheet.Name;
             return strNames;
+        }
+
+        private void CtrlProgress(AppGlobalDatas.Progress state)
+        {
+            if (!Enum.IsDefined(typeof(AppGlobalDatas.Progress), state))
+                throw new InvalidEnumArgumentException(nameof(state), (int)state, typeof(AppGlobalDatas.Progress));
+            if (state == AppGlobalDatas.Progress.Visible)
+                picLoad.Visible = true;
+            else
+                picLoad.Visible = false;
         }
 
         private void ClearAll()
@@ -218,6 +284,7 @@ namespace MDAMS
         }
 
         #endregion
+
 
     }
 }

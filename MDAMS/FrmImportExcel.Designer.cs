@@ -1,4 +1,8 @@
-﻿namespace MDAMS
+﻿using MetroFramework;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace MDAMS
 {
     partial class FrmImportExcel
     {
@@ -13,6 +17,16 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+            if (_backTask != null)
+            {
+                if (_backTask.Status == TaskStatus.Running)
+                {
+                    var res = MetroMessageBox.Show(this, @"Some Background Task is Running.  So, you can't able to close this Form right now.  It takes some seconds.  You still want to Force Close", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (res == DialogResult.No)
+                        return;
+                }
+            }
+
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -36,6 +50,7 @@
             this.picLoad = new System.Windows.Forms.PictureBox();
             this.picExcel = new System.Windows.Forms.PictureBox();
             this.picBrowseExcel = new System.Windows.Forms.PictureBox();
+            this.toggleOnOff = new MetroFramework.Controls.MetroCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBrowseExcel)).BeginInit();
@@ -92,7 +107,7 @@
             // 
             // picLoad
             // 
-            this.picLoad.Image = global::MDAMS.Properties.Resources.giphy;
+            this.picLoad.Image = global::MDAMS.Properties.Resources._3;
             this.picLoad.Location = new System.Drawing.Point(451, 247);
             this.picLoad.Name = "picLoad";
             this.picLoad.Size = new System.Drawing.Size(47, 47);
@@ -103,13 +118,15 @@
             // picExcel
             // 
             this.picExcel.Image = global::MDAMS.Properties.Resources.excel_8;
-            this.picExcel.Location = new System.Drawing.Point(229, 174);
+            this.picExcel.Location = new System.Drawing.Point(231, 172);
             this.picExcel.Name = "picExcel";
             this.picExcel.Size = new System.Drawing.Size(56, 64);
             this.picExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picExcel.TabIndex = 4;
             this.picExcel.TabStop = false;
-            this.picExcel.Click += new System.EventHandler(this.picExcel_Click);
+            this.picExcel.Click += new System.EventHandler(this.picBrowseExcel_Click);
+            this.picExcel.MouseEnter += new System.EventHandler(this.picExcel_MouseEnter);
+            this.picExcel.MouseLeave += new System.EventHandler(this.picExcel_MouseLeave);
             // 
             // picBrowseExcel
             // 
@@ -124,11 +141,24 @@
             this.picBrowseExcel.MouseEnter += new System.EventHandler(this.picBrowseExcel_MouseEnter);
             this.picBrowseExcel.MouseLeave += new System.EventHandler(this.picBrowseExcel_MouseLeave);
             // 
+            // toggleOnOff
+            // 
+            this.toggleOnOff.Appearance = System.Windows.Forms.Appearance.Button;
+            this.toggleOnOff.AutoSize = true;
+            this.toggleOnOff.Location = new System.Drawing.Point(451, 329);
+            this.toggleOnOff.Name = "toggleOnOff";
+            this.toggleOnOff.Size = new System.Drawing.Size(107, 15);
+            this.toggleOnOff.TabIndex = 7;
+            this.toggleOnOff.Text = "Auto Import On";
+            this.toggleOnOff.UseSelectable = true;
+            this.toggleOnOff.CheckedChanged += new System.EventHandler(this.toggleOnOff_CheckedChanged);
+            // 
             // FrmImportExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(619, 434);
+            this.Controls.Add(this.toggleOnOff);
             this.Controls.Add(this.picLoad);
             this.Controls.Add(this.picExcel);
             this.Controls.Add(this.metroLabel1);
@@ -156,5 +186,6 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape progLine;
         private System.Windows.Forms.PictureBox picLoad;
+        private MetroFramework.Controls.MetroCheckBox toggleOnOff;
     }
 }

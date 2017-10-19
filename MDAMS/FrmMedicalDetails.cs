@@ -1,10 +1,8 @@
-﻿using System;
-using System.Drawing;
-using System.Linq;
-using System.Data.OleDb;
-using System.Windows.Forms;
-using MetroFramework;
+﻿using MetroFramework;
 using MetroFramework.Controls;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace MDAMS
 {
@@ -64,7 +62,7 @@ namespace MDAMS
         {
             if (!IsNull())
             {
-                string strInsertQuery = String.Format("INSERT INTO TBLMEDICINES(CDRUGNO, CPRODUCT, CUNITSIZE, CMRP, CTG) VALUES({0}, '{1}', '{2}', {3}, '{4}')", 
+                string strInsertQuery = String.Format("INSERT INTO TBLMEDICINES(CDRUGNO, CPRODUCT, CUNITSIZE, CMRP, CTG) VALUES({0}, '{1}', '{2}', {3}, '{4}')",
                     Convert.ToInt32(txtDrugNo.Text), txtMedName.Text, txtUnitSize.Text, Convert.ToDecimal(txtMRP.Text), txtGrp.Text);
                 if (_dbHelper.UpdateQuery(strInsertQuery) == 1)
                 {
@@ -101,7 +99,7 @@ namespace MDAMS
             }
             if (txtGrp.Text == "")
             {
-                flag = !flag;
+                //flag = !flag;
                 SetError(txtGrp, "Enter Therapeutic Group");
             }
             if (txtMRP.Text == "")
@@ -135,6 +133,35 @@ namespace MDAMS
         private void picClear_MouseLeave(object sender, EventArgs e)
         {
             picClear.BackColor = Color.White;
+        }
+
+        private void txtDrugNo_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            int _drgNo;
+            if (!(int.TryParse(txtDrugNo.Text, out _drgNo)))
+            {
+                erp.SetError(txtDrugNo, "Invalid Drug No!");
+                txtDrugNo.Text = String.Empty;
+            }
+            else
+            {
+                erp.SetError(txtDrugNo, String.Empty);
+            }
+
+        }
+
+        private void txtMRP_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            decimal _mrp;
+            if (!(decimal.TryParse(txtMRP.Text, out _mrp)))
+            {
+                erp.SetError(txtMRP, "Invalid MRP!");
+                txtMRP.Text = String.Empty;
+            }
+            else
+            {
+                erp.SetError(txtMRP, String.Empty);
+            }
         }
     }
 }

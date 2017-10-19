@@ -66,7 +66,6 @@
             this.picImportFile.Click += new System.EventHandler(this.picImportFile_Click);
             this.picImportFile.MouseEnter += new System.EventHandler(this.picImportFile_MouseEnter);
             this.picImportFile.MouseLeave += new System.EventHandler(this.picImportFile_MouseLeave);
-            this.picImportFile.MouseHover += new System.EventHandler(this.picImportFile_MouseHover);
             // 
             // statusStrip1
             // 
@@ -85,7 +84,7 @@
             this.hoverToolName.Text = "toolStripStatusLabel1";
             this.hoverToolName.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
-            // Form1
+            // FrmImportHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -93,7 +92,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.picImportFile);
             this.Controls.Add(this.picImportMedicineData);
-            this.Name = "Form1";
+            this.Name = "FrmImportHome";
             this.Text = "Import New Medicine";
             ((System.ComponentModel.ISupportInitialize)(this.picImportMedicineData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImportFile)).EndInit();

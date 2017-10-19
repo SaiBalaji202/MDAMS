@@ -26,7 +26,7 @@ namespace MDAMS
                 if (_conn == null)
                 {
                     _conn = new OleDbConnection();
-                    _conn.ConnectionString = AppGlobalDatas.DBConnectionString;
+                    _conn.ConnectionString = AppGlobalDatas.DbConnectionString;
 
                 }
                 if (_cmd == null)

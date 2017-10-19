@@ -1,22 +1,28 @@
 ﻿using MetroFramework;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace MDAMS
 {
     public partial class FrmUpdateMedicine : MetroFramework.Forms.MetroForm
     {
+        #region Declaration
+
         private DatabaseHelper _dbHelper;
         private bool _drugNo, _prodName, _unitSize, _mrp, _gp;
-        List<string> drgList, _sdrgList;
-        List<string> prodList, _sprodList;
-        List<string> untList, _suntList;
-        List<string> mrpList, _smrpList;
-        List<string> grpList, _sgrpList;
+        List<string> _drgList, _sdrgList;
+        List<string> _prodList, _sprodList;
+        List<string> _untList, _suntList;
+        List<string> _mrpList, _smrpList;
+        List<string> _grpList, _sgrpList;
         private int _grdSelIndex;
+
+        #endregion
+
 
         public FrmUpdateMedicine()
         {
@@ -27,7 +33,9 @@ namespace MDAMS
 
         private void FrmUpdateMedicine_Load(object sender, EventArgs e)
         {
+            CtrlProgress(AppGlobalDatas.Progress.Visible);
             Init();
+            CtrlProgress(AppGlobalDatas.Progress.InVisible);
         }
 
         private void picClear_Click(object sender, System.EventArgs e)
@@ -70,12 +78,6 @@ namespace MDAMS
             UpdateValuesInGridView();
         }
 
-        private void txtDrugNo_TextChanged(object sender, EventArgs e)
-        {
-            CheckNull();
-            //LoadDataToDataTable();
-        }
-
         private void gridData_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -90,7 +92,8 @@ namespace MDAMS
             }
             catch (Exception exception)
             {
-
+                AppGlobalDatas.CurrentErrorStackTrace = exception;
+                AppGlobalDatas.CurrentError = exception.Message;
             }
         }
 
@@ -105,13 +108,73 @@ namespace MDAMS
             SetAutoCompleteSuggestion();
         }
 
+        private void SetAutoCompleteSuggestion()
+        {
+            string query = string.Format("SELECT cDrugNo, cProduct, cUnitSize, cMRP, cTG FROM TblMedicines;");
+            System.Data.DataTable table = new DataTable();
+            _dbHelper.RetriveQuery(query, table);
+            Add(table);
+        }
+
+        private void Add(System.Data.DataTable table)
+        {
+            _drgList = new List<string>();
+            _prodList = new List<string>();
+            _untList = new List<string>();
+            _mrpList = new List<string>();
+            _grpList = new List<string>();
+            foreach (DataRow row in table.Rows)
+            {
+                _drgList.Add(row[0].ToString());
+                _prodList.Add(row[1].ToString());
+                _untList.Add(row[2].ToString());
+                _mrpList.Add(row[3].ToString());
+                _grpList.Add(row[4].ToString());
+            }
+
+            SetAutoCompleteSource();
+        }
+
+        private void SetAutoCompleteSource()
+        {
+            var collection = new AutoCompleteStringCollection();
+            collection.AddRange(_drgList.ToArray());
+            txtDrugNo.AutoCompleteCustomSource = collection;
+
+            collection = new AutoCompleteStringCollection();
+            collection.AddRange(_prodList.ToArray());
+            txtMedName.AutoCompleteCustomSource = collection;
+
+            collection = new AutoCompleteStringCollection();
+            collection.AddRange(_untList.ToArray());
+            txtUnitSize.AutoCompleteCustomSource = collection;
+
+            collection = new AutoCompleteStringCollection();
+            collection.AddRange(_mrpList.ToArray());
+            txtMRP.AutoCompleteCustomSource = collection;
+
+            collection = new AutoCompleteStringCollection();
+            collection.AddRange(_grpList.ToArray());
+            txtGrp.AutoCompleteCustomSource = collection;
+        }
+
+        private void CtrlProgress(AppGlobalDatas.Progress state)
+        {
+            if (!Enum.IsDefined(typeof(AppGlobalDatas.Progress), state))
+                throw new InvalidEnumArgumentException(nameof(state), (int)state, typeof(AppGlobalDatas.Progress));
+            if (state == AppGlobalDatas.Progress.Visible)
+                progLoad.Visible = true;
+            else
+                progLoad.Visible = false;
+        }
+
         private void InitLists()
         {
-            drgList = new List<string>();
-            prodList = new List<string>();
-            untList = new List<string>();
-            mrpList = new List<string>();
-            grpList = new List<string>();
+            _drgList = new List<string>();
+            _prodList = new List<string>();
+            _untList = new List<string>();
+            _mrpList = new List<string>();
+            _grpList = new List<string>();
         }
 
         private void UpdateValuesInGridView()
@@ -141,6 +204,62 @@ namespace MDAMS
             txtGrp.AutoCompleteCustomSource.Add(txtGrp.Text);
         }
 
+        private void picClear_MouseEnter(object sender, EventArgs e)
+        {
+            HoverOnClear();
+        }
+
+        private void picClear_MouseLeave(object sender, EventArgs e)
+        {
+            HoverOffClear();
+        }
+
+        private void picSearch_MouseEnter(object sender, EventArgs e)
+        {
+            HoverOnSearch();
+        }
+
+        private void picSearch_MouseLeave(object sender, EventArgs e)
+        {
+            HoverOffSearch();
+        }
+
+        private void HoverOnClear()
+        {
+            picClear.BackColor = Color.LightGray;
+            picClear.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+        }
+
+        private void HoverOffClear()
+        {
+            picClear.BackColor = Color.White;
+            picClear.BorderStyle = System.Windows.Forms.BorderStyle.None;
+        }
+
+        private void HoverOnSearch()
+        {
+            picSearch.BackColor = Color.LightGray;
+            picSearch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+        }
+
+        private void txtDrugNo_Validating(object sender, CancelEventArgs e)
+        {
+            CheckNull();
+            LoadDataToDataTable();
+        }
+
+        private void HoverOffSearch()
+        {
+            picSearch.BackColor = Color.White;
+            picSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+        }
+
+        private void metroPanel1_MouseHover(object sender, EventArgs e)
+        {
+            HoverOffClear();
+            HoverOffSearch();
+        }
+
         private void InitSearchLists()
         {
             _sdrgList = new List<string>();
@@ -160,70 +279,24 @@ namespace MDAMS
             gridData.DataSource = null;
         }
 
-        private async void SetAutoCompleteSuggestion()
-        {
-            string _query = string.Format("SELECT cDrugNo, cProduct, cUnitSize, cMRP, cTG FROM TblMedicines;");
-            System.Data.DataTable _table = new DataTable();
-            _dbHelper.RetriveQuery(_query, _table);
-            await AddAsync(_table);
 
-        }
-
-        private async Task AddAsync(System.Data.DataTable _table)
-        {
-            drgList = new List<string>();
-            prodList = new List<string>();
-            untList = new List<string>();
-            mrpList = new List<string>();
-            grpList = new List<string>();
-            foreach (DataRow row in _table.Rows)
-            {
-                drgList.Add(row[0].ToString());
-                prodList.Add(row[1].ToString());
-                untList.Add(row[2].ToString());
-                mrpList.Add(row[3].ToString());
-                grpList.Add(row[4].ToString());
-            }
-
-            AutoCompleteStringCollection collection;
-
-            collection = new AutoCompleteStringCollection();
-            collection.AddRange(drgList.ToArray());
-            txtDrugNo.AutoCompleteCustomSource = collection;
-
-            collection = new AutoCompleteStringCollection();
-            collection.AddRange(prodList.ToArray());
-            txtMedName.AutoCompleteCustomSource = collection;
-
-            collection = new AutoCompleteStringCollection();
-            collection.AddRange(untList.ToArray());
-            txtUnitSize.AutoCompleteCustomSource = collection;
-
-            collection = new AutoCompleteStringCollection();
-            collection.AddRange(mrpList.ToArray());
-            txtMRP.AutoCompleteCustomSource = collection;
-
-            collection = new AutoCompleteStringCollection();
-            collection.AddRange(grpList.ToArray());
-            txtGrp.AutoCompleteCustomSource = collection;
-        }
 
         private void LoadData()
         {
             if (_drugNo)
             {
-                LoadDataToTextBox(drgList.IndexOf(txtDrugNo.Text));
+                LoadDataToTextBox(_drgList.IndexOf(txtDrugNo.Text));
             }
 
         }
 
-        private void LoadDataToTextBox(int _index)
+        private void LoadDataToTextBox(int index)
         {
-            txtDrugNo.Text = drgList[_index];
-            txtMedName.Text = prodList[_index];
-            txtUnitSize.Text = untList[_index];
-            txtMRP.Text = mrpList[_index];
-            txtGrp.Text = grpList[_index];
+            txtDrugNo.Text = _drgList[index];
+            txtMedName.Text = _prodList[index];
+            txtUnitSize.Text = _untList[index];
+            txtMRP.Text = _mrpList[index];
+            txtGrp.Text = _grpList[index];
         }
 
         private void LoadDataToDataTable()
@@ -238,35 +311,6 @@ namespace MDAMS
             _dataTable.Columns.Add("MRP");
             _dataTable.Columns.Add("GRP");
 
-            //Loading Value to List
-            bool flg = false;
-            int _index;
-            if (_drugNo == true)
-            {
-                flg = true;
-                _index = drgList.IndexOf(txtDrugNo.Text);
-            }
-            else if (_prodName == true)
-            {
-                flg = true;
-                _index = prodList.IndexOf(txtMedName.Text);
-            }
-            else if (_unitSize == true)
-            {
-                flg = true;
-                _index = untList.IndexOf(txtUnitSize.Text);
-            }
-            else if (_mrp == true)
-            {
-                flg = true;
-                _index = mrpList.IndexOf(txtMRP.Text);
-            }
-            else if (_gp == true)
-            {
-                flg = true;
-                _index = grpList.IndexOf(txtGrp.Text);
-            }
-
             List<string> drugListNew = new List<string>();
             List<string> prodListNew = new List<string>();
             List<string> untListNew = new List<string>();
@@ -276,85 +320,85 @@ namespace MDAMS
             InitSearchLists();
             if (_drugNo)
             {
-                drugListNew = drgList.FindAll(s => s.Equals(txtDrugNo.Text));
+                drugListNew = _drgList.FindAll(s => s.Equals(txtDrugNo.Text));
                 int _firstIndex = -1;
                 foreach (string drug in drugListNew)
                 {
                     if (_firstIndex == -1)
                     {
-                        _firstIndex = drgList.FindIndex(item => item.Equals(txtDrugNo.Text));
+                        _firstIndex = _drgList.FindIndex(item => item.Equals(txtDrugNo.Text));
                     }
                     else
                     {
-                        _firstIndex = drgList.FindIndex(_firstIndex, item => item.Equals(txtDrugNo.Text));
+                        _firstIndex = _drgList.FindIndex(_firstIndex, item => item.Equals(txtDrugNo.Text));
                     }
                     LoadValuesToAllLists(_firstIndex);
                 }
             }
             else if (_prodName)
             {
-                prodListNew = prodList.FindAll(s => s.Equals(txtMedName.Text));
+                prodListNew = _prodList.FindAll(s => s.Equals(txtMedName.Text));
                 int _firstIndex = -1;
                 foreach (string s in prodListNew)
                 {
                     if (_firstIndex == -1)
                     {
-                        _firstIndex = prodList.FindIndex(item => item.Equals(txtMedName.Text));
+                        _firstIndex = _prodList.FindIndex(item => item.Equals(txtMedName.Text));
                     }
                     else
                     {
-                        _firstIndex = prodList.FindIndex(_firstIndex, item => item.Equals(txtMedName.Text));
+                        _firstIndex = _prodList.FindIndex(_firstIndex, item => item.Equals(txtMedName.Text));
                     }
                     LoadValuesToAllLists(_firstIndex);
                 }
             }
             else if (_unitSize)
             {
-                untListNew = untList.FindAll(s => s.Equals(txtUnitSize.Text));
+                untListNew = _untList.FindAll(s => s.Equals(txtUnitSize.Text));
                 int _firstIndex = -1;
                 foreach (string s in untListNew)
                 {
                     if (_firstIndex == -1)
                     {
-                        _firstIndex = untList.FindIndex(item => item.Equals(txtUnitSize.Text));
+                        _firstIndex = _untList.FindIndex(item => item.Equals(txtUnitSize.Text));
                     }
                     else
                     {
-                        _firstIndex = untList.FindIndex(_firstIndex + 1, item => item.Equals(txtUnitSize.Text));
+                        _firstIndex = _untList.FindIndex(_firstIndex + 1, item => item.Equals(txtUnitSize.Text));
                     }
                     LoadValuesToAllLists(_firstIndex);
                 }
             }
             else if (_mrp)
             {
-                mrpListNew = mrpList.FindAll(s => s.Equals(txtMRP.Text));
+                mrpListNew = _mrpList.FindAll(s => s.Equals(txtMRP.Text));
                 int _firstIndex = -1;
                 foreach (string s in mrpListNew)
                 {
                     if (_firstIndex == -1)
                     {
-                        _firstIndex = mrpList.FindIndex(item => item.Equals(txtMRP.Text));
+                        _firstIndex = _mrpList.FindIndex(item => item.Equals(txtMRP.Text));
                     }
                     else
                     {
-                        _firstIndex = mrpList.FindIndex(_firstIndex, item => item.Equals(txtMRP.Text));
+                        _firstIndex = _mrpList.FindIndex(_firstIndex, item => item.Equals(txtMRP.Text));
                     }
                     LoadValuesToAllLists(_firstIndex);
                 }
             }
             else if (_gp)
             {
-                grpListNew = grpList.FindAll(s => s.Equals(txtGrp.Text));
+                grpListNew = _grpList.FindAll(s => s.Equals(txtGrp.Text));
                 int _firstIndex = -1;
                 foreach (string s in grpListNew)
                 {
                     if (_firstIndex == -1)
                     {
-                        _firstIndex = grpList.FindIndex(item => item.Equals(txtGrp.Text));
+                        _firstIndex = _grpList.FindIndex(item => item.Equals(txtGrp.Text));
                     }
                     else
                     {
-                        _firstIndex = grpList.FindIndex(_firstIndex, item => item.Equals(txtGrp.Text));
+                        _firstIndex = _grpList.FindIndex(_firstIndex, item => item.Equals(txtGrp.Text));
                     }
                     LoadValuesToAllLists(_firstIndex);
                 }
@@ -378,11 +422,11 @@ namespace MDAMS
 
         private void LoadValuesToAllLists(int _index)
         {
-            _sdrgList.Add(drgList[_index]);
-            _sprodList.Add(prodList[_index]);
-            _suntList.Add(untList[_index]);
-            _smrpList.Add(mrpList[_index]);
-            _sgrpList.Add(grpList[_index]);
+            _sdrgList.Add(_drgList[_index]);
+            _sprodList.Add(_prodList[_index]);
+            _suntList.Add(_untList[_index]);
+            _smrpList.Add(_mrpList[_index]);
+            _sgrpList.Add(_grpList[_index]);
         }
 
         private void CheckNull()

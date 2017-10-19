@@ -33,8 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUpdateMedicine));
-            this.picBack = new System.Windows.Forms.PictureBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.txtDrugNo = new MetroFramework.Controls.MetroTextBox();
             this.picSearch = new System.Windows.Forms.PictureBox();
             this.picClear = new System.Windows.Forms.PictureBox();
             this.btnUpdateDetails = new MetroFramework.Controls.MetroButton();
@@ -42,7 +42,6 @@
             this.txtUnitSize = new MetroFramework.Controls.MetroTextBox();
             this.txtGrp = new MetroFramework.Controls.MetroTextBox();
             this.txtMedName = new MetroFramework.Controls.MetroTextBox();
-            this.txtDrugNo = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -51,9 +50,10 @@
             this.panelData = new System.Windows.Forms.Panel();
             this.gridData = new MetroFramework.Controls.MetroGrid();
             this.erp = new System.Windows.Forms.ErrorProvider(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.wrng = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.progLoad = new System.Windows.Forms.PictureBox();
+            this.picBack = new System.Windows.Forms.PictureBox();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClear)).BeginInit();
@@ -61,20 +61,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrng)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progLoad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picBack
-            // 
-            this.picBack.Image = global::MDAMS.Properties.Resources.back3;
-            this.picBack.Location = new System.Drawing.Point(13, 21);
-            this.picBack.Name = "picBack";
-            this.picBack.Size = new System.Drawing.Size(39, 36);
-            this.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBack.TabIndex = 6;
-            this.picBack.TabStop = false;
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.progLoad);
+            this.metroPanel1.Controls.Add(this.txtDrugNo);
             this.metroPanel1.Controls.Add(this.picSearch);
             this.metroPanel1.Controls.Add(this.picClear);
             this.metroPanel1.Controls.Add(this.btnUpdateDetails);
@@ -82,7 +76,6 @@
             this.metroPanel1.Controls.Add(this.txtUnitSize);
             this.metroPanel1.Controls.Add(this.txtGrp);
             this.metroPanel1.Controls.Add(this.txtMedName);
-            this.metroPanel1.Controls.Add(this.txtDrugNo);
             this.metroPanel1.Controls.Add(this.metroLabel5);
             this.metroPanel1.Controls.Add(this.metroLabel4);
             this.metroPanel1.Controls.Add(this.metroLabel3);
@@ -91,18 +84,52 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(39, 67);
+            this.metroPanel1.Location = new System.Drawing.Point(39, 63);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(605, 313);
+            this.metroPanel1.Size = new System.Drawing.Size(605, 333);
             this.metroPanel1.TabIndex = 7;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            this.metroPanel1.MouseHover += new System.EventHandler(this.metroPanel1_MouseHover);
+            // 
+            // txtDrugNo
+            // 
+            this.txtDrugNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtDrugNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            // 
+            // 
+            // 
+            this.txtDrugNo.CustomButton.Image = null;
+            this.txtDrugNo.CustomButton.Location = new System.Drawing.Point(73, 1);
+            this.txtDrugNo.CustomButton.Name = "";
+            this.txtDrugNo.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtDrugNo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtDrugNo.CustomButton.TabIndex = 1;
+            this.txtDrugNo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtDrugNo.CustomButton.UseSelectable = true;
+            this.txtDrugNo.CustomButton.Visible = false;
+            this.txtDrugNo.Lines = new string[0];
+            this.txtDrugNo.Location = new System.Drawing.Point(212, 51);
+            this.txtDrugNo.MaxLength = 32767;
+            this.txtDrugNo.Name = "txtDrugNo";
+            this.txtDrugNo.PasswordChar = '\0';
+            this.txtDrugNo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDrugNo.SelectedText = "";
+            this.txtDrugNo.SelectionLength = 0;
+            this.txtDrugNo.SelectionStart = 0;
+            this.txtDrugNo.ShortcutsEnabled = true;
+            this.txtDrugNo.Size = new System.Drawing.Size(95, 23);
+            this.txtDrugNo.TabIndex = 6;
+            this.txtDrugNo.UseSelectable = true;
+            this.txtDrugNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtDrugNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtDrugNo.Validating += new System.ComponentModel.CancelEventHandler(this.txtDrugNo_Validating);
             // 
             // picSearch
             // 
             this.picSearch.Image = global::MDAMS.Properties.Resources.search1;
-            this.picSearch.Location = new System.Drawing.Point(342, 255);
+            this.picSearch.Location = new System.Drawing.Point(342, 284);
             this.picSearch.Name = "picSearch";
             this.picSearch.Size = new System.Drawing.Size(39, 36);
             this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -110,11 +137,13 @@
             this.picSearch.TabStop = false;
             this.toolTip1.SetToolTip(this.picSearch, "Search");
             this.picSearch.Click += new System.EventHandler(this.picSearch_Click);
+            this.picSearch.MouseEnter += new System.EventHandler(this.picSearch_MouseEnter);
+            this.picSearch.MouseLeave += new System.EventHandler(this.picSearch_MouseLeave);
             // 
             // picClear
             // 
             this.picClear.Image = global::MDAMS.Properties.Resources.clear3;
-            this.picClear.Location = new System.Drawing.Point(124, 255);
+            this.picClear.Location = new System.Drawing.Point(124, 284);
             this.picClear.Name = "picClear";
             this.picClear.Size = new System.Drawing.Size(39, 36);
             this.picClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -122,15 +151,17 @@
             this.picClear.TabStop = false;
             this.toolTip1.SetToolTip(this.picClear, "Clear All");
             this.picClear.Click += new System.EventHandler(this.picClear_Click);
+            this.picClear.MouseEnter += new System.EventHandler(this.picClear_MouseEnter);
+            this.picClear.MouseLeave += new System.EventHandler(this.picClear_MouseLeave);
             // 
             // btnUpdateDetails
             // 
-            this.btnUpdateDetails.Location = new System.Drawing.Point(193, 255);
+            this.btnUpdateDetails.Location = new System.Drawing.Point(193, 284);
             this.btnUpdateDetails.Name = "btnUpdateDetails";
             this.btnUpdateDetails.Size = new System.Drawing.Size(114, 36);
             this.btnUpdateDetails.TabIndex = 4;
             this.btnUpdateDetails.Text = "Update Details";
-            this.toolTip1.SetToolTip(this.btnUpdateDetails, "Update Data");
+            this.toolTip1.SetToolTip(this.btnUpdateDetails, "Update Based on Drug No");
             this.btnUpdateDetails.UseSelectable = true;
             this.btnUpdateDetails.Click += new System.EventHandler(this.btnUpdateDetails_Click);
             // 
@@ -151,7 +182,7 @@
             this.txtMRP.CustomButton.UseSelectable = true;
             this.txtMRP.CustomButton.Visible = false;
             this.txtMRP.Lines = new string[0];
-            this.txtMRP.Location = new System.Drawing.Point(212, 167);
+            this.txtMRP.Location = new System.Drawing.Point(212, 196);
             this.txtMRP.MaxLength = 32767;
             this.txtMRP.Name = "txtMRP";
             this.txtMRP.PasswordChar = '\0';
@@ -165,7 +196,6 @@
             this.txtMRP.UseSelectable = true;
             this.txtMRP.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtMRP.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtMRP.TextChanged += new System.EventHandler(this.txtDrugNo_TextChanged);
             // 
             // txtUnitSize
             // 
@@ -184,7 +214,7 @@
             this.txtUnitSize.CustomButton.UseSelectable = true;
             this.txtUnitSize.CustomButton.Visible = false;
             this.txtUnitSize.Lines = new string[0];
-            this.txtUnitSize.Location = new System.Drawing.Point(212, 122);
+            this.txtUnitSize.Location = new System.Drawing.Point(212, 151);
             this.txtUnitSize.MaxLength = 32767;
             this.txtUnitSize.Name = "txtUnitSize";
             this.txtUnitSize.PasswordChar = '\0';
@@ -198,7 +228,6 @@
             this.txtUnitSize.UseSelectable = true;
             this.txtUnitSize.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtUnitSize.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtUnitSize.TextChanged += new System.EventHandler(this.txtDrugNo_TextChanged);
             // 
             // txtGrp
             // 
@@ -217,7 +246,7 @@
             this.txtGrp.CustomButton.UseSelectable = true;
             this.txtGrp.CustomButton.Visible = false;
             this.txtGrp.Lines = new string[0];
-            this.txtGrp.Location = new System.Drawing.Point(212, 213);
+            this.txtGrp.Location = new System.Drawing.Point(212, 242);
             this.txtGrp.MaxLength = 32767;
             this.txtGrp.Name = "txtGrp";
             this.txtGrp.PasswordChar = '\0';
@@ -231,7 +260,6 @@
             this.txtGrp.UseSelectable = true;
             this.txtGrp.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtGrp.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtGrp.TextChanged += new System.EventHandler(this.txtDrugNo_TextChanged);
             // 
             // txtMedName
             // 
@@ -250,7 +278,7 @@
             this.txtMedName.CustomButton.UseSelectable = true;
             this.txtMedName.CustomButton.Visible = false;
             this.txtMedName.Lines = new string[0];
-            this.txtMedName.Location = new System.Drawing.Point(212, 74);
+            this.txtMedName.Location = new System.Drawing.Point(212, 103);
             this.txtMedName.MaxLength = 32767;
             this.txtMedName.Name = "txtMedName";
             this.txtMedName.PasswordChar = '\0';
@@ -264,45 +292,11 @@
             this.txtMedName.UseSelectable = true;
             this.txtMedName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtMedName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtMedName.TextChanged += new System.EventHandler(this.txtDrugNo_TextChanged);
-            // 
-            // txtDrugNo
-            // 
-            this.txtDrugNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtDrugNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            // 
-            // 
-            // 
-            this.txtDrugNo.CustomButton.Image = null;
-            this.txtDrugNo.CustomButton.Location = new System.Drawing.Point(73, 1);
-            this.txtDrugNo.CustomButton.Name = "";
-            this.txtDrugNo.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtDrugNo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtDrugNo.CustomButton.TabIndex = 1;
-            this.txtDrugNo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtDrugNo.CustomButton.UseSelectable = true;
-            this.txtDrugNo.CustomButton.Visible = false;
-            this.txtDrugNo.Lines = new string[0];
-            this.txtDrugNo.Location = new System.Drawing.Point(212, 22);
-            this.txtDrugNo.MaxLength = 32767;
-            this.txtDrugNo.Name = "txtDrugNo";
-            this.txtDrugNo.PasswordChar = '\0';
-            this.txtDrugNo.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtDrugNo.SelectedText = "";
-            this.txtDrugNo.SelectionLength = 0;
-            this.txtDrugNo.SelectionStart = 0;
-            this.txtDrugNo.ShortcutsEnabled = true;
-            this.txtDrugNo.Size = new System.Drawing.Size(95, 23);
-            this.txtDrugNo.TabIndex = 3;
-            this.txtDrugNo.UseSelectable = true;
-            this.txtDrugNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtDrugNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtDrugNo.TextChanged += new System.EventHandler(this.txtDrugNo_TextChanged);
             // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(62, 217);
+            this.metroLabel5.Location = new System.Drawing.Point(62, 246);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(125, 19);
             this.metroLabel5.TabIndex = 2;
@@ -311,7 +305,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(62, 171);
+            this.metroLabel4.Location = new System.Drawing.Point(62, 200);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(44, 19);
             this.metroLabel4.TabIndex = 2;
@@ -320,7 +314,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(62, 126);
+            this.metroLabel3.Location = new System.Drawing.Point(62, 155);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(66, 19);
             this.metroLabel3.TabIndex = 2;
@@ -329,7 +323,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(62, 78);
+            this.metroLabel2.Location = new System.Drawing.Point(62, 107);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(140, 19);
             this.metroLabel2.TabIndex = 2;
@@ -338,7 +332,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(62, 26);
+            this.metroLabel1.Location = new System.Drawing.Point(62, 55);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(67, 19);
             this.metroLabel1.TabIndex = 2;
@@ -407,6 +401,26 @@
             this.wrng.ContainerControl = this;
             this.wrng.Icon = ((System.Drawing.Icon)(resources.GetObject("wrng.Icon")));
             // 
+            // progLoad
+            // 
+            this.progLoad.Image = global::MDAMS.Properties.Resources._30;
+            this.progLoad.Location = new System.Drawing.Point(170, 3);
+            this.progLoad.Name = "progLoad";
+            this.progLoad.Size = new System.Drawing.Size(183, 24);
+            this.progLoad.TabIndex = 9;
+            this.progLoad.TabStop = false;
+            this.progLoad.Visible = false;
+            // 
+            // picBack
+            // 
+            this.picBack.Image = global::MDAMS.Properties.Resources.back3;
+            this.picBack.Location = new System.Drawing.Point(13, 21);
+            this.picBack.Name = "picBack";
+            this.picBack.Size = new System.Drawing.Size(39, 36);
+            this.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBack.TabIndex = 6;
+            this.picBack.TabStop = false;
+            // 
             // FrmUpdateMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,7 +432,6 @@
             this.Name = "FrmUpdateMedicine";
             this.Text = "     Update Medicine Details";
             this.Load += new System.EventHandler(this.FrmUpdateMedicine_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picBack)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
@@ -427,6 +440,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrng)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progLoad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBack)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -441,7 +456,6 @@
         private MetroFramework.Controls.MetroTextBox txtUnitSize;
         private MetroFramework.Controls.MetroTextBox txtGrp;
         private MetroFramework.Controls.MetroTextBox txtMedName;
-        private MetroFramework.Controls.MetroTextBox txtDrugNo;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
@@ -451,7 +465,9 @@
         private System.Windows.Forms.Panel panelData;
         private MetroFramework.Controls.MetroGrid gridData;
         private System.Windows.Forms.ErrorProvider erp;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ErrorProvider wrng;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox progLoad;
+        private MetroFramework.Controls.MetroTextBox txtDrugNo;
     }
 }

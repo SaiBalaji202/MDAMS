@@ -22,24 +22,28 @@ namespace MDAMS
         private void picUpdateFile_MouseEnter(object sender, System.EventArgs e)
         {
             picUpdateFile.BackColor = Color.LightGray;
-            hoverToolName.Text = "Update Medicine Details";
+            picUpdateFile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            hoverToolName.Text = @"Update Medicine Details";
         }
 
         private void picUpdateFile_MouseLeave(object sender, System.EventArgs e)
         {
             picUpdateFile.BackColor = Color.White;
+            picUpdateFile.BorderStyle = System.Windows.Forms.BorderStyle.None;
             hoverToolName.Text = "";
         }
 
         private void picUpdateMedicineData_MouseEnter(object sender, System.EventArgs e)
         {
             picUpdateMedicineData.BackColor = Color.LightGray;
-            hoverToolName.Text = "Update Medicine Details By Providing Updated Excel File";
+            picUpdateMedicineData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            hoverToolName.Text = @"Update Medicine Details By Providing Updated Excel File";
         }
 
         private void picUpdateMedicineData_MouseLeave(object sender, System.EventArgs e)
         {
             picUpdateMedicineData.BackColor = Color.White;
+            picUpdateMedicineData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             hoverToolName.Text = "";
         }
     }

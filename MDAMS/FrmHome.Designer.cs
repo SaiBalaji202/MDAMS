@@ -87,6 +87,7 @@
             // 
             // picDeleteMedicine
             // 
+            this.picDeleteMedicine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picDeleteMedicine.Image = global::MDAMS.Properties.Resources.Delete_Icon;
             this.picDeleteMedicine.Location = new System.Drawing.Point(338, 19);
             this.picDeleteMedicine.Name = "picDeleteMedicine";
@@ -94,11 +95,13 @@
             this.picDeleteMedicine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picDeleteMedicine.TabIndex = 2;
             this.picDeleteMedicine.TabStop = false;
+            this.picDeleteMedicine.Click += new System.EventHandler(this.picDeleteMedicine_Click);
             this.picDeleteMedicine.MouseEnter += new System.EventHandler(this.picDeleteMedicine_MouseEnter);
             this.picDeleteMedicine.MouseLeave += new System.EventHandler(this.picDeleteMedicine_MouseLeave);
             // 
             // picGenerateReport
             // 
+            this.picGenerateReport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picGenerateReport.Image = global::MDAMS.Properties.Resources.report_icon_23;
             this.picGenerateReport.Location = new System.Drawing.Point(338, 172);
             this.picGenerateReport.Name = "picGenerateReport";
@@ -106,11 +109,13 @@
             this.picGenerateReport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picGenerateReport.TabIndex = 2;
             this.picGenerateReport.TabStop = false;
+            this.picGenerateReport.Click += new System.EventHandler(this.picGenerateReport_Click);
             this.picGenerateReport.MouseEnter += new System.EventHandler(this.picGenerateReport_MouseEnter);
             this.picGenerateReport.MouseLeave += new System.EventHandler(this.picGenerateReport_MouseLeave);
             // 
             // picPrepareBill
             // 
+            this.picPrepareBill.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picPrepareBill.Image = global::MDAMS.Properties.Resources.bill;
             this.picPrepareBill.Location = new System.Drawing.Point(172, 172);
             this.picPrepareBill.Name = "picPrepareBill";
@@ -118,11 +123,13 @@
             this.picPrepareBill.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPrepareBill.TabIndex = 2;
             this.picPrepareBill.TabStop = false;
+            this.picPrepareBill.Click += new System.EventHandler(this.picPrepareBill_Click);
             this.picPrepareBill.MouseEnter += new System.EventHandler(this.picPrepareBill_MouseEnter);
             this.picPrepareBill.MouseLeave += new System.EventHandler(this.picPrepareBill_MouseLeave);
             // 
             // picViewMedicines
             // 
+            this.picViewMedicines.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picViewMedicines.Image = global::MDAMS.Properties.Resources.view_512;
             this.picViewMedicines.Location = new System.Drawing.Point(18, 172);
             this.picViewMedicines.Name = "picViewMedicines";
@@ -136,6 +143,7 @@
             // 
             // picUpdateMedicine
             // 
+            this.picUpdateMedicine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picUpdateMedicine.Image = global::MDAMS.Properties.Resources.website_update;
             this.picUpdateMedicine.Location = new System.Drawing.Point(172, 19);
             this.picUpdateMedicine.Name = "picUpdateMedicine";
@@ -149,6 +157,7 @@
             // 
             // picAddMedicine
             // 
+            this.picAddMedicine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picAddMedicine.Image = global::MDAMS.Properties.Resources.insert_table1600;
             this.picAddMedicine.Location = new System.Drawing.Point(18, 19);
             this.picAddMedicine.Name = "picAddMedicine";
