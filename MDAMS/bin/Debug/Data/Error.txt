@@ -20,3 +20,355 @@
    at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
    at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
 
+
+[10/20/2017 9:29:01 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 9:29:01 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 9:29:03 PM] - Error: Syntax error in number in query expression '11..8'. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in number in query expression '11..8'.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 9:29:04 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 9:41:21 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 9:41:21 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 9:41:23 PM] - Error: Syntax error in number in query expression '11..8'. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in number in query expression '11..8'.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 9:41:23 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:07:39 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:07:39 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:07:40 PM] - Error: Syntax error in number in query expression '11..8'. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in number in query expression '11..8'.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:07:41 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:14:09 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:14:10 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:14:11 PM] - Error: Syntax error in number in query expression '11..8'. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in number in query expression '11..8'.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:14:12 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:19:58 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:19:58 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:19:59 PM] - Error: Syntax error in number in query expression '11..8'. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in number in query expression '11..8'.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:20:00 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:55:46 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:55:46 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:55:47 PM] - Error: Syntax error in number in query expression '11..8'. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in number in query expression '11..8'.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 10:55:48 PM] - Error: Syntax error in UPDATE statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in UPDATE statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 11:03:30 PM] - Error: Syntax error in INSERT INTO statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in INSERT INTO statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 11:03:31 PM] - Error: Syntax error in INSERT INTO statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in INSERT INTO statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 11:03:32 PM] - Error: Syntax error in number in query expression '11..8'. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in number in query expression '11..8'.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 11:03:33 PM] - Error: Syntax error in INSERT INTO statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in INSERT INTO statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 11:14:07 PM] - Error: Syntax error in INSERT INTO statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in INSERT INTO statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 11:14:08 PM] - Error: Syntax error in INSERT INTO statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in INSERT INTO statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 11:14:09 PM] - Error: Syntax error in number in query expression '11..8'. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in number in query expression '11..8'.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+
+
+[10/20/2017 11:14:10 PM] - Error: Syntax error in INSERT INTO statement. 
+	System.Data.OleDb.OleDbException (0x80040E14): Syntax error in INSERT INTO statement.
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   at MDAMS.DatabaseHelper.UpdateQuery(String strQuery) in F:\Mini-Proj\MDAMS\MDAMS\DatabaseHelper.cs:line 112
+

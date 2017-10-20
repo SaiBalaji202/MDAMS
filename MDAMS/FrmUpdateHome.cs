@@ -46,5 +46,10 @@ namespace MDAMS
             picUpdateMedicineData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             hoverToolName.Text = "";
         }
+
+        private void picUpdateMedicineData_Click(object sender, System.EventArgs e)
+        {
+            (new FrmUpdateExcel()).Show();
+        }
     }
 }

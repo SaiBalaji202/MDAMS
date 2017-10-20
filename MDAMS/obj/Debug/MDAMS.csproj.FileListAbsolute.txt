@@ -9,7 +9,6 @@ F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\Tulpep.NotificationWindow.dll
 F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\WinFormAnimation.dll
 F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\CircularProgressBar.xml
 F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\WinFormAnimation.xml
-F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.csprojResolveAssemblyReference.cache
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.Properties.Resources.resources
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.csproj.GenerateResource.Cache
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.exe

@@ -74,7 +74,7 @@ namespace MDAMS
             ClearHoverEffects();
             picAddMedicine.BackColor = Color.LightGray;
             //picAddMedicine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            hoverToolName.Text = "Insert New Medicine";
+            hoverToolName.Text = @"Insert New Medicine";
         }
 
         private void picAddMedicine_MouseLeave(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace MDAMS
             ClearHoverEffects();
             picUpdateMedicine.BackColor = Color.LightGray;
             // picUpdateMedicine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            hoverToolName.Text = "Update Medicine Details";
+            hoverToolName.Text = @"Update Medicine Details";
         }
 
         private void picUpdateMedicine_MouseLeave(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace MDAMS
             ClearHoverEffects();
             picDeleteMedicine.BackColor = Color.LightGray;
             //picDeleteMedicine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            hoverToolName.Text = "Delete Medicine";
+            hoverToolName.Text = @"Delete Medicine";
         }
 
         private void picDeleteMedicine_MouseLeave(object sender, EventArgs e)
@@ -119,7 +119,7 @@ namespace MDAMS
             ClearHoverEffects();
             picViewMedicines.BackColor = Color.LightGray;
             //picViewMedicines.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            hoverToolName.Text = "View Medicine";
+            hoverToolName.Text = @"View Medicine";
         }
 
         private void picViewMedicines_MouseLeave(object sender, EventArgs e)
@@ -134,7 +134,7 @@ namespace MDAMS
             ClearHoverEffects();
             picPrepareBill.BackColor = Color.LightGray;
             //picPrepareBill.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            hoverToolName.Text = "Prepare Bill";
+            hoverToolName.Text = @"Prepare Bill";
         }
 
         private void picPrepareBill_MouseLeave(object sender, EventArgs e)
@@ -149,7 +149,7 @@ namespace MDAMS
             ClearHoverEffects();
             picGenerateReport.BackColor = Color.LightGray;
             //picGenerateReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            hoverToolName.Text = "Generate Monthly Report";
+            hoverToolName.Text = @"Generate Monthly Report";
         }
 
         private void picGenerateReport_MouseLeave(object sender, EventArgs e)

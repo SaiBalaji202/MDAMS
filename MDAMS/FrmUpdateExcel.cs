@@ -1,5 +1,6 @@
 ﻿using LinqToExcel;
 using MetroFramework;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,25 +13,24 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace MDAMS
 {
-    public partial class FrmImportExcel : MetroFramework.Forms.MetroForm
+    public partial class FrmUpdateExcel : MetroForm
     {
+
+        #region VariableDeclaration
         private Excel.Application _excelApp;
         private Excel.Workbook _excelWorkbook;
-
+        private Excel.Worksheet _excelWorksheet;
         private string _strFilePath;
         DatabaseHelper _dbHelper;
         private Task _backTask;
         private List<int> _failureRecords;
+        #endregion
 
-        #region Constructors
-
-        public FrmImportExcel()
+        public FrmUpdateExcel()
         {
             InitializeComponent();
             Init();
         }
-
-        #endregion
 
         #region Handlers
 
@@ -78,10 +78,10 @@ namespace MDAMS
         private void comboAvailSheets_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (toggleOnOff.Checked)
-                btnImportToDB.PerformClick();
+                btnUpdateDB.PerformClick();
         }
 
-        private void btnImportToDB_Click(object sender, EventArgs e)
+        private void btnUpdateDB_Click(object sender, EventArgs e)
         {
             CtrlProgress(AppGlobalDatas.Progress.Visible);
             _backTask = new Task(() =>
@@ -94,14 +94,14 @@ namespace MDAMS
 
         private void picBrowseExcel_Click(object sender, EventArgs e)
         {
-            string _strFile = BrowseExcel();
+            string strFile = BrowseExcel();
             CtrlProgress(AppGlobalDatas.Progress.Visible);
             _backTask = new Task(() =>
             {
-                lblLoadMsg.Text = @"Loading Sheets...";
-                OnBrowseExcelClick(_strFilePath);
+                lblLoadMsg.Text = @"Reading Sheets";
+                OnBrowseExcelClick(strFile);
+                lblLoadMsg.Text = @"Sheets Readed Successfully";
                 CtrlProgress(AppGlobalDatas.Progress.InVisible);
-                lblLoadMsg.Text = @"Sheets Loaded";
             });
             _backTask.Start();
         }
@@ -110,15 +110,16 @@ namespace MDAMS
         {
             if (toggleOnOff.Checked == false)
             {
-                toggleOnOff.Text = @"Auto Import Off";
+                toggleOnOff.Text = @"Auto Update Off";
             }
             else
             {
-                toggleOnOff.Text = @"Auto Import On";
+                toggleOnOff.Text = @"Auto Update On";
             }
         }
 
         #endregion
+
 
         #region UserDefinedFunctions
 
@@ -139,8 +140,9 @@ namespace MDAMS
 
         private void ReadExcel()
         {
-            lblLoadMsg.Text = @"Reading Excel Sheet...";
+            lblLoadMsg.Text = "Reading Excel Sheet...";
             InitExcelApp(_strFilePath);
+            _excelWorksheet = (Excel.Worksheet)_excelWorkbook.Worksheets.Item[Convert.ToInt32(comboAvailSheets.SelectedIndex) + 1];
 
             var excelFile = new ExcelQueryFactory(_strFilePath);
             var datasQueryable = from a in excelFile.Worksheet(comboAvailSheets.SelectedText) select a;
@@ -154,7 +156,6 @@ namespace MDAMS
             {
                 if (_rowCount > 0)
                 {
-
                     //Reading Processed Data From Excel
                     List<string> objects = new List<string>();
                     int _colCount = 0;
@@ -190,10 +191,11 @@ namespace MDAMS
                     _rowCount++;
                 }
             }
+
             _excelWorkbook.Close();
             _excelApp.Quit();
-
-            if (!(ImportExcelToDb(dt)))
+            lblLoadMsg.Text = "Updating Table....";
+            if (!(UpdateExcelToDb(dt)))
             {
                 var res = MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nDo you want to save the Error Message?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (res == DialogResult.Yes)
@@ -201,61 +203,59 @@ namespace MDAMS
                     if (!(Helper.WriteError(AppGlobalDatas.CurrentError,
                         AppGlobalDatas.CurrentErrorStackTrace.ToString())))
                     {
-                        MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nTo Report this Error, Contact Admin through Contact Form", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nTo Report this Error, Contact Admin through Contact Form", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
-            MetroMessageBox.Show(this, "Data Imported Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            lblLoadMsg.Text = "Update Completed";
+            MetroMessageBox.Show(this, "Data Updated Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private bool ImportExcelToDb(DataTable dt)
+        private bool UpdateExcelToDb(DataTable dt)
         {
-            lblLoadMsg.Text = @"Inserting Data into Table....";
             bool flg = false;
+            string errDetails = null;
             int count = 0;
-            string _errDetails = null;
 
             _failureRecords = new List<int>();
+
             bool flag = true;
+
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string strQuery = String.Format("INSERT INTO TBLMEDICINES(CDRUGNO, CPRODUCT, CUNITSIZE, CMRP, CTG) VALUES");
-                strQuery = strQuery + String.Format("({0}, '{1}', '{2}', {3}, '{4}');", dt.Rows[i][1].ToString().Trim(), dt.Rows[i][2].ToString().Trim(),
-                               dt.Rows[i][3].ToString().Trim(), dt.Rows[i][4].ToString().Trim(), "");
+                var strQuery = string.Format("UPDATE TBLMEDICINES SET CPRODUCT='{1}', CUNITSIZE='{2}', CMRP={3}, CTG='{4}' WHERE CDRUGNO={0};",
+                    dt.Rows[i][1].ToString().Trim(), dt.Rows[i][2].ToString().Trim(),
+                    dt.Rows[i][3].ToString().Trim(), dt.Rows[i][4].ToString().Trim(), dt.Rows[i][0].ToString().Trim());
+
                 if (_dbHelper.UpdateQuery(strQuery) == -1)
                 {
                     flag = !flag;
-
                     _failureRecords.Add(i);
 
                     if (!(Helper.WriteError(AppGlobalDatas.CurrentError,
-                        AppGlobalDatas.CurrentErrorStackTrace.ToString())))
+                    AppGlobalDatas.CurrentErrorStackTrace.ToString())))
                     {
-
                         count++;
                         if (!flg)
                         {
+                            errDetails = AppGlobalDatas.CurrentError;
                             flg = true;
-                            _errDetails = AppGlobalDatas.CurrentError;
                         }
                     }
-                }
 
+                }
             }
 
             if (_failureRecords != null)
             {
                 string affectedRecords = string.Join(", ", _failureRecords);
-                MetroMessageBox.Show(this, "Unable to Insert Records on the Row " + affectedRecords + "\n\tCheck the whether the corresponding records on your Excel Sheet.",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(this, "Unable to Update Records on the Row " + affectedRecords + "\n\tCheck the whether the corresponding records on your Excel Sheet.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
             if (count > 0)
             {
-                MetroMessageBox.Show(this, _errDetails + "\n\nThe Above Error occurs " + count + "times during Insertion.  To Report this Error, Contact Admin through Contact Form", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(this, errDetails + "\n\nThe Above Error occurs " + count + "times during Updation of Records.  To Report this Error, Contact Admin through Contact Form", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            lblLoadMsg.Text = @"Data Inserted Successfully.";
             _failureRecords = null;
             return flag;
         }
@@ -264,8 +264,10 @@ namespace MDAMS
 
         private string BrowseExcel()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = AppGlobalDatas.ExcelFilter;
+            OpenFileDialog openFileDialog = new OpenFileDialog()
+            {
+                Filter = AppGlobalDatas.ExcelFilter
+            };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 _strFilePath = openFileDialog.FileName;
@@ -306,23 +308,21 @@ namespace MDAMS
         {
             if (!Enum.IsDefined(typeof(AppGlobalDatas.Progress), state))
                 throw new InvalidEnumArgumentException(nameof(state), (int)state, typeof(AppGlobalDatas.Progress));
-            if (state == AppGlobalDatas.Progress.Visible)
-                picLoad.Visible = true;
-            else
-                picLoad.Visible = false;
+            picLoad.Visible = state == AppGlobalDatas.Progress.Visible;
         }
 
         private void ClearAll()
         {
             _excelApp = null;
             _excelWorkbook = null;
+            _excelWorksheet = null;
 
             comboAvailSheets.Items.Clear();
             picLoad.Visible = false;
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

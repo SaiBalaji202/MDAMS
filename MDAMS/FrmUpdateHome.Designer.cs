@@ -63,6 +63,7 @@
             this.picUpdateMedicineData.TabIndex = 3;
             this.picUpdateMedicineData.TabStop = false;
             this.toolTip1.SetToolTip(this.picUpdateMedicineData, "Update Medicine Data");
+            this.picUpdateMedicineData.Click += new System.EventHandler(this.picUpdateMedicineData_Click);
             this.picUpdateMedicineData.MouseEnter += new System.EventHandler(this.picUpdateMedicineData_MouseEnter);
             this.picUpdateMedicineData.MouseLeave += new System.EventHandler(this.picUpdateMedicineData_MouseLeave);
             // 
