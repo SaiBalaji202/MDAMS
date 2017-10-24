@@ -23,6 +23,14 @@ namespace MDAMS
         public static string CurrentError { get; set; }
         public static Exception CurrentErrorStackTrace { get; set; }
 
+        #region LableValues
+        public static string StrDrgNo = @"Drug No";
+        public static string StrGrp = @"Group Name";
+        public static string StrMrp = @"MRP";
+        public static string StrProdName = @"Product Name";
+        public static string StrUnit = @"Unit Size";
+        #endregion
+
         private static string LoadStoreName()
         {
             return "Ji Medical Shop";

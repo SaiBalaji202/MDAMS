@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.OleDb;
 
 namespace MDAMS
@@ -148,7 +144,7 @@ namespace MDAMS
                 AppGlobalDatas.CurrentError = exception.Message;
                 AppGlobalDatas.CurrentErrorStackTrace = exception;
             }
-            
+
         }
 
     }

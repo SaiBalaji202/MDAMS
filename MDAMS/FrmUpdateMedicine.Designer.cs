@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUpdateMedicine));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUpdateMedicine));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.progLoad = new System.Windows.Forms.PictureBox();
             this.txtDrugNo = new MetroFramework.Controls.MetroTextBox();
             this.picSearch = new System.Windows.Forms.PictureBox();
             this.picClear = new System.Windows.Forms.PictureBox();
@@ -48,25 +49,28 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.panelData = new System.Windows.Forms.Panel();
-            this.gridData = new MetroFramework.Controls.MetroGrid();
             this.erp = new System.Windows.Forms.ErrorProvider(this.components);
             this.wrng = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.progLoad = new System.Windows.Forms.PictureBox();
             this.picBack = new System.Windows.Forms.PictureBox();
+            this.btnDeleteDetails = new MetroFramework.Controls.MetroButton();
+            this.toggleMultipleDelete = new MetroFramework.Controls.MetroCheckBox();
+            this.gridData = new MetroFramework.Controls.MetroGrid();
             this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClear)).BeginInit();
             this.panelData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrng)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridData)).BeginInit();
             this.SuspendLayout();
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.toggleMultipleDelete);
+            this.metroPanel1.Controls.Add(this.btnDeleteDetails);
             this.metroPanel1.Controls.Add(this.progLoad);
             this.metroPanel1.Controls.Add(this.txtDrugNo);
             this.metroPanel1.Controls.Add(this.picSearch);
@@ -86,12 +90,22 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(39, 63);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(605, 333);
+            this.metroPanel1.Size = new System.Drawing.Size(605, 362);
             this.metroPanel1.TabIndex = 7;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             this.metroPanel1.MouseHover += new System.EventHandler(this.metroPanel1_MouseHover);
+            // 
+            // progLoad
+            // 
+            this.progLoad.Image = global::MDAMS.Properties.Resources._30;
+            this.progLoad.Location = new System.Drawing.Point(178, 3);
+            this.progLoad.Name = "progLoad";
+            this.progLoad.Size = new System.Drawing.Size(183, 24);
+            this.progLoad.TabIndex = 9;
+            this.progLoad.TabStop = false;
+            this.progLoad.Visible = false;
             // 
             // txtDrugNo
             // 
@@ -129,7 +143,7 @@
             // picSearch
             // 
             this.picSearch.Image = global::MDAMS.Properties.Resources.search1;
-            this.picSearch.Location = new System.Drawing.Point(342, 284);
+            this.picSearch.Location = new System.Drawing.Point(442, 285);
             this.picSearch.Name = "picSearch";
             this.picSearch.Size = new System.Drawing.Size(39, 36);
             this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -143,7 +157,7 @@
             // picClear
             // 
             this.picClear.Image = global::MDAMS.Properties.Resources.clear3;
-            this.picClear.Location = new System.Drawing.Point(124, 284);
+            this.picClear.Location = new System.Drawing.Point(55, 285);
             this.picClear.Name = "picClear";
             this.picClear.Size = new System.Drawing.Size(39, 36);
             this.picClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -156,7 +170,7 @@
             // 
             // btnUpdateDetails
             // 
-            this.btnUpdateDetails.Location = new System.Drawing.Point(193, 284);
+            this.btnUpdateDetails.Location = new System.Drawing.Point(124, 285);
             this.btnUpdateDetails.Name = "btnUpdateDetails";
             this.btnUpdateDetails.Size = new System.Drawing.Size(114, 36);
             this.btnUpdateDetails.TabIndex = 4;
@@ -341,10 +355,51 @@
             // panelData
             // 
             this.panelData.Controls.Add(this.gridData);
-            this.panelData.Location = new System.Drawing.Point(39, 402);
+            this.panelData.Location = new System.Drawing.Point(39, 446);
             this.panelData.Name = "panelData";
-            this.panelData.Size = new System.Drawing.Size(473, 210);
+            this.panelData.Size = new System.Drawing.Size(605, 255);
             this.panelData.TabIndex = 8;
+            // 
+            // erp
+            // 
+            this.erp.ContainerControl = this;
+            this.erp.Icon = ((System.Drawing.Icon)(resources.GetObject("erp.Icon")));
+            // 
+            // wrng
+            // 
+            this.wrng.ContainerControl = this;
+            this.wrng.Icon = ((System.Drawing.Icon)(resources.GetObject("wrng.Icon")));
+            // 
+            // picBack
+            // 
+            this.picBack.Image = global::MDAMS.Properties.Resources.back3;
+            this.picBack.Location = new System.Drawing.Point(13, 21);
+            this.picBack.Name = "picBack";
+            this.picBack.Size = new System.Drawing.Size(39, 36);
+            this.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBack.TabIndex = 6;
+            this.picBack.TabStop = false;
+            // 
+            // btnDeleteDetails
+            // 
+            this.btnDeleteDetails.Location = new System.Drawing.Point(275, 285);
+            this.btnDeleteDetails.Name = "btnDeleteDetails";
+            this.btnDeleteDetails.Size = new System.Drawing.Size(114, 36);
+            this.btnDeleteDetails.TabIndex = 10;
+            this.btnDeleteDetails.Text = "Delete Details";
+            this.btnDeleteDetails.UseSelectable = true;
+            this.btnDeleteDetails.Click += new System.EventHandler(this.btnDeleteDetails_Click);
+            // 
+            // toggleMultipleDelete
+            // 
+            this.toggleMultipleDelete.Appearance = System.Windows.Forms.Appearance.Button;
+            this.toggleMultipleDelete.AutoSize = true;
+            this.toggleMultipleDelete.Location = new System.Drawing.Point(262, 327);
+            this.toggleMultipleDelete.Name = "toggleMultipleDelete";
+            this.toggleMultipleDelete.Size = new System.Drawing.Size(148, 15);
+            this.toggleMultipleDelete.TabIndex = 11;
+            this.toggleMultipleDelete.Text = "Delete Multiple Records";
+            this.toggleMultipleDelete.UseSelectable = true;
             // 
             // gridData
             // 
@@ -387,45 +442,15 @@
             this.gridData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridData.Size = new System.Drawing.Size(473, 210);
+            this.gridData.Size = new System.Drawing.Size(605, 255);
             this.gridData.TabIndex = 0;
             this.gridData.SelectionChanged += new System.EventHandler(this.gridData_SelectionChanged);
-            // 
-            // erp
-            // 
-            this.erp.ContainerControl = this;
-            this.erp.Icon = ((System.Drawing.Icon)(resources.GetObject("erp.Icon")));
-            // 
-            // wrng
-            // 
-            this.wrng.ContainerControl = this;
-            this.wrng.Icon = ((System.Drawing.Icon)(resources.GetObject("wrng.Icon")));
-            // 
-            // progLoad
-            // 
-            this.progLoad.Image = global::MDAMS.Properties.Resources._30;
-            this.progLoad.Location = new System.Drawing.Point(170, 3);
-            this.progLoad.Name = "progLoad";
-            this.progLoad.Size = new System.Drawing.Size(183, 24);
-            this.progLoad.TabIndex = 9;
-            this.progLoad.TabStop = false;
-            this.progLoad.Visible = false;
-            // 
-            // picBack
-            // 
-            this.picBack.Image = global::MDAMS.Properties.Resources.back3;
-            this.picBack.Location = new System.Drawing.Point(13, 21);
-            this.picBack.Name = "picBack";
-            this.picBack.Size = new System.Drawing.Size(39, 36);
-            this.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBack.TabIndex = 6;
-            this.picBack.TabStop = false;
             // 
             // FrmUpdateMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 635);
+            this.ClientSize = new System.Drawing.Size(667, 724);
             this.Controls.Add(this.panelData);
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.picBack);
@@ -434,14 +459,14 @@
             this.Load += new System.EventHandler(this.FrmUpdateMedicine_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClear)).EndInit();
             this.panelData.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrng)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -463,11 +488,13 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.PictureBox picSearch;
         private System.Windows.Forms.Panel panelData;
-        private MetroFramework.Controls.MetroGrid gridData;
         private System.Windows.Forms.ErrorProvider erp;
         private System.Windows.Forms.ErrorProvider wrng;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox progLoad;
         private MetroFramework.Controls.MetroTextBox txtDrugNo;
+        private MetroFramework.Controls.MetroButton btnDeleteDetails;
+        private MetroFramework.Controls.MetroCheckBox toggleMultipleDelete;
+        private MetroFramework.Controls.MetroGrid gridData;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using SplashScreen;
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MDAMS
@@ -9,16 +10,16 @@ namespace MDAMS
     {
         public FrmHome()
         {
-            //Thread thread = new Thread(new ThreadStart(Splash));
-            //thread.Start();
+            Thread thread = new Thread(new ThreadStart(Splash));
+            thread.Start();
 
             InitializeComponent();
-            //string str = String.Empty;
-            //for (int i = 0; i < 100000; i++)
-            //{
-            //    str += i.ToString();
-            //}
-            //thread.Abort();
+            string str = String.Empty;
+            for (int i = 0; i < 100000; i++)
+            {
+                str += i.ToString();
+            }
+            thread.Abort();
         }
 
         public void Splash()

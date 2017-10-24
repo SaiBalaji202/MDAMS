@@ -38,6 +38,12 @@ namespace MDAMS
             CtrlProgress(AppGlobalDatas.Progress.InVisible);
         }
 
+        private void metroPanel1_MouseHover(object sender, EventArgs e)
+        {
+            HoverOffClear();
+            HoverOffSearch();
+        }
+
         private void picClear_Click(object sender, System.EventArgs e)
         {
             ClearAll();
@@ -51,31 +57,197 @@ namespace MDAMS
 
         private void btnUpdateDetails_Click(object sender, System.EventArgs e)
         {
-            string strQuery = string.Format(@"UPDATE TBLMEDICINES SET CPRODUCT='{0}', CUNITSIZE='{1}', CMRP={2}, CTG='{3}' WHERE CDRUGNO={4};",
-                txtMedName.Text, txtUnitSize.Text, Convert.ToInt32(txtMRP.Text), txtGrp.Text, Convert.ToInt32(txtDrugNo.Text));
+            var res = MetroMessageBox.Show(this, "Do you want to Delete the Selected Record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+            {
+                string strQuery = string.Format(@"UPDATE TBLMEDICINES SET CPRODUCT='{0}', CUNITSIZE='{1}', CMRP={2}, CTG='{3}' WHERE CDRUGNO={4};",
+                txtMedName.Text, txtUnitSize.Text, txtMRP.Text, txtGrp.Text, txtDrugNo.Text);
 
-            if (_dbHelper.UpdateQuery(strQuery) == 1)
-            {
-                MetroMessageBox.Show(this, "Updated Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (_dbHelper.UpdateQuery(strQuery) >= 1)
+                {
+                    MetroMessageBox.Show(this, "Updated Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    var resE = MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nDo you want to save the Error Message?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    if (resE == DialogResult.Yes)
+                    {
+                        if (!(Helper.WriteError(AppGlobalDatas.CurrentError,
+                            AppGlobalDatas.CurrentErrorStackTrace.ToString())))
+                        {
+                            MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nTo Report this Error, Contact Admin through Contact Form", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
+                // Update Auto-Complete Custom Source Collection
+                UpdateValuesInAutoCollection();
+
+                // Update Values in DataTable
+                UpdateRowsInDataTable();
+
+                // Update Values in DataGridView
+                UpdateValuesInGridView();
             }
-            else
+
+        }
+
+        private void btnDeleteDetails_Click(object sender, EventArgs e)
+        {
+            string strQuery = null;
+            bool flgDel = false;
+
+            if (gridData.SelectedRows.Count == 1)
             {
-                var res = MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nDo you want to save the Error Message?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                var res = MetroMessageBox.Show(this, "Do you want to Delete the Selected Record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (res == DialogResult.Yes)
                 {
-                    if (!(Helper.WriteError(AppGlobalDatas.CurrentError,
-                        AppGlobalDatas.CurrentErrorStackTrace.ToString())))
+                    strQuery = string.Format(@"DELETE FROM TBLMEDICINES WHERE CDRUGNO={0};", txtDrugNo.Text.ToString());
+                    if (_dbHelper.UpdateQuery(strQuery) >= 1)
                     {
-                        MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nTo Report this Error, Contact Admin through Contact Form", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MetroMessageBox.Show(this, "Deleted Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        flgDel = true;
+                    }
+                    else
+                    {
+                        var resE = MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nDo you want to save the Error Message?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                        if (resE == DialogResult.Yes)
+                        {
+                            if (!(Helper.WriteError(AppGlobalDatas.CurrentError,
+                                AppGlobalDatas.CurrentErrorStackTrace.ToString())))
+                            {
+                                MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nTo Report this Error, Contact Admin through Contact Form", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        flgDel = false;
+                    }
+                }
+
+            }
+            else if (gridData.SelectedRows.Count > 1)
+            {
+                var res = MetroMessageBox.Show(this, "Do you want to Delete Multiple Records?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (res == DialogResult.Yes)
+                {
+                    System.Text.StringBuilder strbDelQuery = new System.Text.StringBuilder(@"DELETE FROM TBLMEDICINES WHERE CDRUGNO=");
+                    List<string> strIds = new List<string>();
+                    bool flgCheckGFirst = false;
+                    foreach (DataGridViewRow data in gridData.SelectedRows)
+                    {
+                        if (flgCheckGFirst)
+                        {
+                            strbDelQuery.Append(string.Format(" AND CDRUGNO={0}", data.Cells[1].Value.ToString()));
+                        }
+                        else
+                        {
+                            strbDelQuery.Append(data.Cells[1].Value.ToString());
+                            flgCheckGFirst = true;
+                        }
+                    }
+                    strbDelQuery.Append(";");
+                    strQuery = strbDelQuery.ToString();
+
+                    if (_dbHelper.UpdateQuery(strQuery) >= 1)
+                    {
+                        MetroMessageBox.Show(this, "Deleted Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        flgDel = true;
+                    }
+                    else
+                    {
+                        var resM = MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nDo you want to save the Error Message?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                        if (resM == DialogResult.Yes)
+                        {
+                            if (!(Helper.WriteError(AppGlobalDatas.CurrentError,
+                                AppGlobalDatas.CurrentErrorStackTrace.ToString())))
+                            {
+                                MetroMessageBox.Show(this, AppGlobalDatas.CurrentError + "\n\nTo Report this Error, Contact Admin through Contact Form", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        flgDel = false;
                     }
                 }
             }
 
-            // Update Auto-Complete Custom Source Collection
-            UpdateValuesInAutoCollection();
+            //If Deleted from Databse
+            if (flgDel)
+            {
+                // Delete Auto-Complete Custom Source Collection
+                DeleteValuesInAutoCollection();
 
-            // Update Values in DataGridView
-            UpdateValuesInGridView();
+                // Delete Rows in DataTable
+                DeleteRowsInDataTable();
+
+                // Delete Rows in DataGridView
+                DeleteRowsInGridView();
+            }
+
+            // Clear All TextBox Values once the Data has been deleted
+            ClearAll();
+
+        }
+
+        private void DeleteRowsInDataTable()
+        {
+            foreach (DataGridViewRow row in gridData.SelectedRows)
+            {
+                string strCellToDel = row.Cells[1].Value.ToString();
+                int indexToDelete = _drgList.IndexOf(strCellToDel);
+                if (indexToDelete > 0 && _drgList.Remove(strCellToDel))
+                {
+                    _prodList.RemoveAt(indexToDelete);
+                    _mrpList.RemoveAt(indexToDelete);
+                    _untList.RemoveAt(indexToDelete);
+                    _grpList.RemoveAt(indexToDelete);
+
+                    CheckAndDeleteRedundantDataInDt(strCellToDel);
+                }
+            }
+        }
+
+        private void CheckAndDeleteRedundantDataInDt(string drugNo)
+        {
+            int indexToDel = 0;
+            while ((indexToDel = _drgList.IndexOf(drugNo)) > -1)
+            {
+                _drgList.RemoveAt(indexToDel);
+                _prodList.RemoveAt(indexToDel);
+                _untList.RemoveAt(indexToDel);
+                _mrpList.RemoveAt(indexToDel);
+                _grpList.RemoveAt(indexToDel);
+            }
+        }
+
+        private void DeleteRowsInGridView()
+        {
+            foreach (DataGridViewRow row in gridData.SelectedRows)
+            {
+                int rowsToDel = Convert.ToInt32(row.Cells[1].Value.ToString());
+                gridData.Rows.Remove(row);
+                CheckAndDeleteRedundantData(rowsToDel);
+            }
+        }
+
+        private void DeleteValuesInAutoCollection()
+        {
+            foreach (DataGridViewRow row in gridData.SelectedRows)
+            {
+                txtDrugNo.AutoCompleteCustomSource.Remove(row.Cells[1].ToString());
+                txtMedName.AutoCompleteCustomSource.Remove(row.Cells[2].ToString());
+                txtUnitSize.AutoCompleteCustomSource.Remove(row.Cells[3].ToString());
+                txtMRP.AutoCompleteCustomSource.Remove(row.Cells[4].ToString());
+                txtGrp.AutoCompleteCustomSource.Remove(row.Cells[5].ToString());
+            }
+        }
+
+        private void CheckAndDeleteRedundantData(int drugNo)
+        {
+            foreach (DataGridViewRow gridDataRow in gridData.Rows)
+            {
+                if (Convert.ToInt32(gridDataRow.Cells[1].Value) == drugNo)
+                {
+                    gridData.Rows.Remove(gridDataRow);
+                }
+            }
         }
 
         private void gridData_SelectionChanged(object sender, EventArgs e)
@@ -160,8 +332,8 @@ namespace MDAMS
 
         private void CtrlProgress(AppGlobalDatas.Progress state)
         {
-            if (!Enum.IsDefined(typeof(AppGlobalDatas.Progress), state))
-                throw new InvalidEnumArgumentException(nameof(state), (int)state, typeof(AppGlobalDatas.Progress));
+            //if (!Enum.IsDefined(typeof(AppGlobalDatas.Progress), state))
+            //    throw new InvalidEnumArgumentException(nameof(state), (int)state, typeof(AppGlobalDatas.Progress));
             if (state == AppGlobalDatas.Progress.Visible)
                 progLoad.Visible = true;
             else
@@ -184,6 +356,36 @@ namespace MDAMS
             gridData.Rows[_grdSelIndex].Cells[3].Value = txtUnitSize.Text;
             gridData.Rows[_grdSelIndex].Cells[4].Value = txtMRP.Text;
             gridData.Rows[_grdSelIndex].Cells[5].Value = txtGrp.Text;
+        }
+
+        private void UpdateRowsInDataTable()
+        {
+            foreach (DataGridViewRow row in gridData.SelectedRows)
+            {
+                string strCellToUpdate = row.Cells[1].Value.ToString();
+                int indexToUpdate = _drgList.IndexOf(strCellToUpdate);
+                if (indexToUpdate > 0 && _drgList.Remove(strCellToUpdate))
+                {
+                    _prodList[indexToUpdate] = txtMedName.Text;
+                    _mrpList[indexToUpdate] = txtMRP.Text;
+                    _untList[indexToUpdate] = txtUnitSize.Text;
+                    _grpList[indexToUpdate] = txtGrp.Text;
+
+                    CheckAndUpdateRedundantDataInDt(strCellToUpdate);
+                }
+            }
+        }
+
+        private void CheckAndUpdateRedundantDataInDt(string drugNo)
+        {
+            int indexToUpdate = -1;
+            while ((indexToUpdate = _drgList.IndexOf(drugNo, indexToUpdate + 1)) > -1)
+            {
+                _prodList[indexToUpdate] = txtMedName.Text;
+                _mrpList[indexToUpdate] = txtMRP.Text;
+                _untList[indexToUpdate] = txtUnitSize.Text;
+                _grpList[indexToUpdate] = txtGrp.Text;
+            }
         }
 
         private void UpdateValuesInAutoCollection()
@@ -252,12 +454,6 @@ namespace MDAMS
         {
             picSearch.BackColor = Color.White;
             picSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-        }
-
-        private void metroPanel1_MouseHover(object sender, EventArgs e)
-        {
-            HoverOffClear();
-            HoverOffSearch();
         }
 
         private void InitSearchLists()
@@ -451,7 +647,5 @@ namespace MDAMS
         }
 
         #endregion
-
-
     }
 }
