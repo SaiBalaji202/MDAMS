@@ -67,7 +67,6 @@ namespace MDAMS
                 if (_dbHelper.UpdateQuery(strInsertQuery) == 1)
                 {
                     MetroMessageBox.Show(this, "Inserted Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
                 else
                 {

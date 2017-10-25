@@ -127,6 +127,12 @@
     <Compile Include="FrmImportExcel.Designer.cs">
       <DependentUpon>FrmImportExcel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMedicalDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,11 +145,29 @@
     <Compile Include="FrmPrintBill.Designer.cs">
       <DependentUpon>FrmPrintBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRecPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRecPass.Designer.cs">
+      <DependentUpon>FrmRecPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmReport.Designer.cs">
       <DependentUpon>FrmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReq.Designer.cs">
+      <DependentUpon>FrmReq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSignup.Designer.cs">
+      <DependentUpon>FrmSignup.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUpdateExcel.cs">
       <SubType>Form</SubType>
@@ -164,6 +188,10 @@
       <DependentUpon>FrmViewMedicine.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
+    <Compile Include="LoginData.cs" />
+    <Compile Include="LoginHelper.cs" />
+    <Compile Include="LoginQuestions.cs" />
+    <Compile Include="MySecurity.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FrmUpdateHome.cs">
@@ -186,6 +214,7 @@
       <DependentUpon>Sample.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Validate.cs" />
     <EmbeddedResource Include="FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,14 +224,26 @@
     <EmbeddedResource Include="FrmImportExcel.resx">
       <DependentUpon>FrmImportExcel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMedicalDetails.resx">
       <DependentUpon>FrmMedicalDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrintBill.resx">
       <DependentUpon>FrmPrintBill.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmRecPass.resx">
+      <DependentUpon>FrmRecPass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReport.resx">
       <DependentUpon>FrmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReq.resx">
+      <DependentUpon>FrmReq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSignup.resx">
+      <DependentUpon>FrmSignup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateExcel.resx">
       <DependentUpon>FrmUpdateExcel.cs</DependentUpon>
@@ -230,7 +271,6 @@
       <DependentUpon>FrmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptReceipt.rdlc" />
-    <EmbeddedResource Include="RptSamp.rdlc" />
     <EmbeddedResource Include="Sample.resx">
       <DependentUpon>Sample.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,6 +292,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\locked-padlock-and-key.png" />
+    <None Include="Resources\locked-shield%281%29.png" />
+    <None Include="Resources\locked-shield.png" />
+    <None Include="Resources\man-and-locked-padlock-personal-security-symbol.png" />
+    <None Include="Resources\safety-lock.png" />
+    <None Include="Resources\locked-padlock-and-key%281%29.png" />
+    <None Include="Resources\vintage-key-outline.png" />
+    <None Include="Resources\avatar.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\login.png" />
+    <None Include="Resources\login%281%29.png" />
+    <None Include="Resources\gmail%281%29.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

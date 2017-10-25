@@ -28,9 +28,7 @@ namespace MDAMS
 
         private void FrmPrintBill_Load(object sender, EventArgs e)
         {
-            ReportDataSource reportDataSource = new ReportDataSource();
-            reportDataSource.Name = @"ReceiptDataSource";
-            reportDataSource.Value = _list;
+            ReportDataSource reportDataSource = new ReportDataSource("DataSet1", _list);
 
             Microsoft.Reporting.WinForms.ReportParameter[] parameters = new ReportParameter[]
             {
@@ -40,8 +38,14 @@ namespace MDAMS
                 new Microsoft.Reporting.WinForms.ReportParameter("pDate", _date),
                 new Microsoft.Reporting.WinForms.ReportParameter("pShopName", _shopName)
             };
+
+            this.reportBill.LocalReport.DataSources.Clear();
+            this.reportBill.LocalReport.DataSources.Add(reportDataSource);
             this.reportBill.LocalReport.SetParameters(parameters);
+            this.reportBill.LocalReport.Refresh();
+
             this.reportBill.RefreshReport();
+
         }
     }
 }

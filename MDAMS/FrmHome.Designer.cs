@@ -33,20 +33,20 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.hoverToolName = new System.Windows.Forms.ToolStripStatusLabel();
             this.picDeleteMedicine = new System.Windows.Forms.PictureBox();
-            this.picGenerateReport = new System.Windows.Forms.PictureBox();
             this.picPrepareBill = new System.Windows.Forms.PictureBox();
             this.picViewMedicines = new System.Windows.Forms.PictureBox();
             this.picUpdateMedicine = new System.Windows.Forms.PictureBox();
             this.picAddMedicine = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.picGenerateReport = new System.Windows.Forms.PictureBox();
             this.panelGroupControls.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDeleteMedicine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picGenerateReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPrepareBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picViewMedicines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdateMedicine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAddMedicine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picGenerateReport)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGroupControls
@@ -71,6 +71,7 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.Transparent;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hoverToolName});
             this.statusStrip1.Location = new System.Drawing.Point(0, 298);
@@ -98,20 +99,6 @@
             this.picDeleteMedicine.Click += new System.EventHandler(this.picDeleteMedicine_Click);
             this.picDeleteMedicine.MouseEnter += new System.EventHandler(this.picDeleteMedicine_MouseEnter);
             this.picDeleteMedicine.MouseLeave += new System.EventHandler(this.picDeleteMedicine_MouseLeave);
-            // 
-            // picGenerateReport
-            // 
-            this.picGenerateReport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picGenerateReport.Image = global::MDAMS.Properties.Resources.report_icon_23;
-            this.picGenerateReport.Location = new System.Drawing.Point(338, 172);
-            this.picGenerateReport.Name = "picGenerateReport";
-            this.picGenerateReport.Size = new System.Drawing.Size(84, 89);
-            this.picGenerateReport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picGenerateReport.TabIndex = 2;
-            this.picGenerateReport.TabStop = false;
-            this.picGenerateReport.Click += new System.EventHandler(this.picGenerateReport_Click);
-            this.picGenerateReport.MouseEnter += new System.EventHandler(this.picGenerateReport_MouseEnter);
-            this.picGenerateReport.MouseLeave += new System.EventHandler(this.picGenerateReport_MouseLeave);
             // 
             // picPrepareBill
             // 
@@ -169,6 +156,20 @@
             this.picAddMedicine.MouseEnter += new System.EventHandler(this.picAddMedicine_MouseEnter);
             this.picAddMedicine.MouseLeave += new System.EventHandler(this.picAddMedicine_MouseLeave);
             // 
+            // picGenerateReport
+            // 
+            this.picGenerateReport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picGenerateReport.Image = global::MDAMS.Properties.Resources.report_icon_23;
+            this.picGenerateReport.Location = new System.Drawing.Point(338, 172);
+            this.picGenerateReport.Name = "picGenerateReport";
+            this.picGenerateReport.Size = new System.Drawing.Size(84, 89);
+            this.picGenerateReport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picGenerateReport.TabIndex = 2;
+            this.picGenerateReport.TabStop = false;
+            this.picGenerateReport.Click += new System.EventHandler(this.picGenerateReport_Click);
+            this.picGenerateReport.MouseEnter += new System.EventHandler(this.picGenerateReport_MouseEnter);
+            this.picGenerateReport.MouseLeave += new System.EventHandler(this.picGenerateReport_MouseLeave);
+            // 
             // FrmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,11 +184,11 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDeleteMedicine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picGenerateReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPrepareBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picViewMedicines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdateMedicine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAddMedicine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picGenerateReport)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -198,11 +199,11 @@
         private System.Windows.Forms.PictureBox picAddMedicine;
         private System.Windows.Forms.PictureBox picDeleteMedicine;
         private System.Windows.Forms.PictureBox picUpdateMedicine;
-        private System.Windows.Forms.PictureBox picGenerateReport;
         private System.Windows.Forms.PictureBox picPrepareBill;
         private System.Windows.Forms.PictureBox picViewMedicines;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel hoverToolName;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox picGenerateReport;
     }
 }

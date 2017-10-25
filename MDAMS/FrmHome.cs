@@ -50,22 +50,25 @@ namespace MDAMS
         private void picViewMedicines_Click(object sender, EventArgs e)
         {
             picViewMedicines.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            (new FrmUpdateMedicine()).Show();
+            (new FrmViewMedicine()).Show();
         }
 
         private void picDeleteMedicine_Click(object sender, EventArgs e)
         {
             picDeleteMedicine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            (new FrmUpdateMedicine()).Show();
         }
 
         private void picPrepareBill_Click(object sender, EventArgs e)
         {
             picPrepareBill.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            (new FrmReport()).Show();
         }
 
         private void picGenerateReport_Click(object sender, EventArgs e)
         {
             picGenerateReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            (new FrmReport()).Show();
         }
 
         #region Hover Handlers

@@ -137,3 +137,7 @@ F:\Mini-Proj\MDAMS\MDAMS\bin\Debug\zh-HANT\Microsoft.ReportViewer.WinForms.resou
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.csproj.MDAMS.exe.config
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmPrintBill.resources
 F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmReport.resources
+F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmLogin.resources
+F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmSignup.resources
+F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmReq.resources
+F:\Mini-Proj\MDAMS\MDAMS\obj\Debug\MDAMS.FrmRecPass.resources

@@ -13,7 +13,7 @@ namespace MDAMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPrintBill());
+            Application.Run(new FrmHome());
         }
     }
 }
